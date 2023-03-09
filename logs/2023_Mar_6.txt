@@ -1,0 +1,115 @@
+8:46:40 AM 127.0.0.1 POST /credentials/register application/json
+9:03:43 AM 127.0.0.1 POST /credentials/register application/json
+{
+  "status": "exception",
+  "url": "/credentials/register",
+  "message": "user already added: ed"
+}
+9:03:47 AM 127.0.0.1 POST /credentials/register application/json
+12:41:36 PM 127.0.0.1 POST /credentials/register application/json
+{
+  "status": "exception",
+  "url": "/credentials/register",
+  "message": "user already added: ed"
+}
+12:41:41 PM 127.0.0.1 POST /credentials/register application/json
+12:43:47 PM 127.0.0.1 GET /confirmation/550495e08cae1daafd1fc67a2649f9e8&source=gmail&ust=1678210905472000&usg=AOvVaw3kGXuzQ_GZkznEpSjdB11I 
+12:44:08 PM 127.0.0.1 GET /confirmation/550495e08cae1daafd1fc67a2649f9e8 
+12:55:09 PM 127.0.0.1 GET /confirmation/550495e08cae1daafd1fc67a2649f9e8 
+12:55:18 PM 127.0.0.1 GET /confirmation 
+12:55:18 PM 127.0.0.1 GET /favicon.ico 
+12:55:21 PM 127.0.0.1 GET /confirmation/550495e08cae1daafd1fc67a2649f9e8 
+12:56:05 PM 127.0.0.1 GET /confirmation/550495e08cae1daafd1fc67a2649f9e8 
+12:56:17 PM 127.0.0.1 GET /confirmation/550495e08cae1daafd1fc67a2649f9e8 
+{
+  "status": "exception",
+  "url": "/confirmation/550495e08cae1daafd1fc67a2649f9e8"
+}
+12:56:19 PM 127.0.0.1 GET /confirmation/550495e08cae1daafd1fc67a2649f9e8 
+{
+  "status": "exception",
+  "url": "/confirmation/550495e08cae1daafd1fc67a2649f9e8"
+}
+12:56:21 PM 127.0.0.1 GET /confirmation/550495e08cae1daafd1fc67a2649f9e8 
+{
+  "status": "exception",
+  "url": "/confirmation/550495e08cae1daafd1fc67a2649f9e8"
+}
+12:56:26 PM 127.0.0.1 GET /confirmation 
+12:56:30 PM 127.0.0.1 GET /confirmation/550495e08cae1daafd1fc67a2649f9 
+{
+  "status": "exception",
+  "url": "/confirmation/550495e08cae1daafd1fc67a2649f9"
+}
+1:01:12 PM 127.0.0.1 GET /confirmation/550495e08cae1daafd1fc67a2649f9 
+{
+  "status": "exception",
+  "url": "/confirmation/550495e08cae1daafd1fc67a2649f9",
+  "message": "Confirmation hash not found."
+}
+1:01:45 PM 127.0.0.1 GET /confirmation/550495e08cae1daafd1fc67a2649f9e8&source=gmail&ust=1678210905472000&usg=AOvVaw3kGXuzQ_GZkznEpSjdB11I 
+{
+  "status": "exception",
+  "url": "/confirmation/550495e08cae1daafd1fc67a2649f9e8&source=gmail&ust=1678210905472000&usg=AOvVaw3kGXuzQ_GZkznEpSjdB11I",
+  "message": "Confirmation hash not found."
+}
+1:02:01 PM 127.0.0.1 GET /confirmation/550495e08cae1daafd1fc67a2649f9e8 
+{
+  "status": "exception",
+  "url": "/confirmation/550495e08cae1daafd1fc67a2649f9e8",
+  "message": "Confirmation hash not found."
+}
+1:25:22 PM 127.0.0.1 GET /confirmation/550495e08cae1daafd1fc67a2649f9e8 
+{
+  "status": "exception",
+  "url": "/confirmation/550495e08cae1daafd1fc67a2649f9e8",
+  "message": "Confirmation hash not found."
+}
+1:25:35 PM 127.0.0.1 POST /credentials/register application/json
+1:40:43 PM 127.0.0.1 POST /credentials/register application/json
+1:43:49 PM 127.0.0.1 POST /credentials/register application/json
+{
+  "status": "exception",
+  "url": "/credentials/register",
+  "message": "user already added: edx"
+}
+1:43:57 PM 127.0.0.1 POST /credentials/register application/json
+1:44:05 PM 127.0.0.1 POST /credentials/register application/json
+{
+  "status": "exception",
+  "url": "/credentials/register",
+  "message": "user already added: edx"
+}
+1:44:14 PM 127.0.0.1 POST /credentials/register application/json
+1:45:01 PM 127.0.0.1 POST /credentials/register application/json
+1:47:01 PM 127.0.0.1 POST /credentials/register application/json
+{
+  "status": "exception",
+  "url": "/credentials/register",
+  "message": "user already added: edx"
+}
+1:47:06 PM 127.0.0.1 POST /credentials/register application/json
+1:47:43 PM 127.0.0.1 GET /confirmation/c0a095863f0dd5e6921c832e512b1551 
+{
+  "status": "exception",
+  "url": "/confirmation/c0a095863f0dd5e6921c832e512b1551",
+  "message": "Confirmation hash not found."
+}
+1:48:24 PM 127.0.0.1 GET /confirmation/c0a095863f0dd5e6921c832e512b1551 
+{
+  "status": "exception",
+  "url": "/confirmation/c0a095863f0dd5e6921c832e512b1551",
+  "message": "Confirmation hash not found."
+}
+1:49:02 PM 127.0.0.1 GET /confirmation/c0a095863f0dd5e6921c832e512b1551 
+{
+  "status": "exception",
+  "url": "/confirmation/c0a095863f0dd5e6921c832e512b1551",
+  "message": "Confirmation hash not found."
+}
+1:49:04 PM 127.0.0.1 GET /confirmation/c0a095863f0dd5e6921c832e512b1551 
+{
+  "status": "exception",
+  "url": "/confirmation/c0a095863f0dd5e6921c832e512b1551",
+  "message": "Confirmation hash not found."
+}

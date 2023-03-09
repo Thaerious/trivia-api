@@ -1,0 +1,7 @@
+5:42:24 PM 127.0.0.1 POST /credentials/register application/json
+{
+  "status": "exception",
+  "url": "/credentials/register",
+  "message": "no such table: users"
+}
+5:43:09 PM 127.0.0.1 POST /credentials/register application/json
