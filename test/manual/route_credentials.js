@@ -20,8 +20,8 @@ const res = {
     }
 }
 
-const confirmationHashes = new DBHash(TEST_PATH, CONST.EMAIL_CONF.TABLE).init();
-const credentials = new Credentials(TEST_PATH).init();
+const confirmationHashes = new DBHash(TEST_PATH, CONST.DB.TABLE.EMAIL_CONF).create();
+const credentials = new Credentials(TEST_PATH).create();
 
 try {
     await register(credentials, confirmationHashes, {

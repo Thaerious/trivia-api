@@ -10,7 +10,7 @@ class DBHash {
         this.table = table;
     }
 
-    init() {
+    create() {
         new sqlite3(this.dbFile).prepare(`
             CREATE TABLE IF NOT EXISTS ${this.table} ( \
                 idx INTEGER PRIMARY KEY AUTOINCREMENT, \
@@ -39,10 +39,12 @@ class DBHash {
     }
 
     hasHash(hash) {
-        const sql = `SELECT * FROM ${this.table} WHERE hash = ?`;
+        const sql = `SELECT hash, MAX(idx) FROM ${this.table} WHERE hash = ?`;
         const stmt = new sqlite3(this.dbFile).prepare(sql);        
         const row = stmt.get(hash);
-        return row?.hash != undefined;                
+        if (!row) return false;
+        if (!row.hash) return false;
+        return true;
     }
 
     getHash(value) {
@@ -57,6 +59,24 @@ class DBHash {
         const stmt = new sqlite3(this.dbFile).prepare(sql);        
         const info = stmt.run(hash);
         return info.changes;
+    }
+
+    removeValue(value) {
+        const sql = `DELETE FROM ${this.table} WHERE value = ?`;
+        const stmt = new sqlite3(this.dbFile).prepare(sql);        
+        const info = stmt.run(value);
+        return info.changes;
+    }    
+
+    /**
+     * Returns true if the provided hash exists and is the most recent hash for
+     * it's value.
+     */
+    verify(hash) {
+        const value = this.getValue(hash);
+        if (!value) return false;
+        const latest = this.getHash(value);
+        return latest === hash;
     }
 
     /**

@@ -16,17 +16,18 @@ export default {
     },
     URL: {
         HOME: "http://127.0.0.1:8080",
-        CONFIRMATON: "http://127.0.0.1:8080/confirmation"
+        CONFIRMATON: "http://127.0.0.1:8080/confirmation",
+        PORTAL: process.env.PORTAL_URL,
     },
     TEMPLATES: {
         CONFIRMATION: Path.join("emails", "confirmation")
     },
-    EMAIL_CONF: {
-        TABLE: "email_confirmation"
-    },
     DB: {
         PRODUCTION: "db/credentials.db",
-        SALT_ITERATIONS: 8
+        SALT_ITERATIONS: 8,
+        TABLE: {
+            EMAIL_CONF: "email_confirmation"
+        },        
     },
     STATUS: {
         EXCEPTION: "exception",

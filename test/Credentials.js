@@ -38,7 +38,7 @@ describe("Credentials.js", function () {
     describe("add a user", function () {
         before(function () {
             this.credentials = new Credentials(CONST.DB.PRODUCTION);
-            this.credentials.init();
+            this.credentials.create();
         });
 
         describe("undefined username", async function () {
@@ -233,7 +233,7 @@ describe("Credentials.js", function () {
     describe("#hasEmail", async function () {
         before(function () {
             this.credentials = new Credentials(CONST.DB.PRODUCTION);
-            this.credentials.init();
+            this.credentials.create();
         });
 
         it("returns true if the email is already in use", async function () {

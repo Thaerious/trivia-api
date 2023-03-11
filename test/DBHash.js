@@ -35,10 +35,10 @@ describe("DBHash.js", function () {
     describe("Create new table", function () {
         before(function () {
             this.dbHash = new DBHash(TEST_PATH, TEST_TABLE);
-            this.dbHash.init();
+            this.dbHash.create();
         });
 
-        it("The db file is created when it doens't already exist", function () {
+        it("The db file is created when it doesn't already exist", function () {
             assert.ok(
                 FS.existsSync(TEST_PATH)
             );
@@ -114,4 +114,41 @@ describe("DBHash.js", function () {
             assert.strictEqual(this.dbHash.getHash("apple"), hash);
         });
     });
+
+    describe("Verify (#verify) a hash to determine if it's the most recent valid hash", function () {
+        before(function () {
+            this.dbHash = new DBHash(TEST_PATH, TEST_TABLE);
+            this.hash1 = this.dbHash.assign("Gerhild Radúz", 8);
+            this.hash2 = this.dbHash.assign("Gerhild Radúz", 8);
+        });        
+
+        it("Returns false for the first hash", function () {
+            const actual = this.dbHash.verify(this.hash1);
+            assert.ok(!actual);
+        });
+
+        it("Returns true for the second hash", function () {
+            const actual = this.dbHash.verify(this.hash2);
+            assert.ok(actual);
+        });        
+    });
+
+    describe("#RemoveValue - Create two hashes for the same value then remove them", function () {
+        before(function () {
+            this.dbHash = new DBHash(TEST_PATH, TEST_TABLE);
+            this.hash1 = this.dbHash.assign("Cefin Ajit", 8);
+            this.hash2 = this.dbHash.assign("Cefin Ajit", 8);
+            this.dbHash.removeValue("Cefin Ajit");
+        });        
+
+        it("Removes the first hash value", function () {
+            const actual = this.dbHash.hasHash(this.hash1);
+            assert.ok(!actual);
+        });
+
+        it("Removes the second hash value", function () {
+            const actual = this.dbHash.hasHash(this.hash2);
+            assert.ok(!actual);
+        });        
+    });    
 });

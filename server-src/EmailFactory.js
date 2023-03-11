@@ -24,10 +24,10 @@ class Email {
 }
 
 class EmailFactory {
-    confirmation(destination, hash) {
+    confirmation(destination, confirmationURL) {
         const literals = {
             home: CONST.URL.HOME,
-            link: Path.join(CONST.URL.CONFIRMATON, hash)
+            link: confirmationURL
         }
 
         const email = new Email();

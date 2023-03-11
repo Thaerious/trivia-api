@@ -1,0 +1,16 @@
+9:37:02 AM 127.0.0.1 POST /credentials/register application/json
+{
+  "status": "exception",
+  "url": "/credentials/register",
+  "message": "no such table: users"
+}
+9:38:03 AM 127.0.0.1 POST /credentials/register application/json
+9:41:18 AM 127.0.0.1 POST /credentials/register application/json
+9:44:07 AM 127.0.0.1 POST /credentials/register application/json
+9:44:48 AM 127.0.0.1 POST /credentials/register application/json
+9:45:10 AM 127.0.0.1 GET /confirmation/6f214ef4342a8744bdb5fadee123d238 
+9:59:26 AM 127.0.0.1 POST /credentials/register application/json
+10:01:44 AM 127.0.0.1 POST /credentials/register application/json
+10:02:01 AM 127.0.0.1 POST /credentials/register application/json
+10:02:23 AM 127.0.0.1 POST /credentials/register application/json
+10:02:41 AM 127.0.0.1 GET /confirmation/e59ebce46449ea2b1849dbb65c06e588 

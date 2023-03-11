@@ -4,20 +4,20 @@ import Credentials from "../../Credentials.js";
 import handleError from "../../handleError.js";
 import handleResponse from "../../handleResponse.js";
 import DBHash from "../../DBHash.js";
-import DB from "../../DB.js";
 import CONST from "../../constants.js";
 import EmailFactory from "../../EmailFactory.js";
 import logger from "../../setupLogger.js";
+import Path from "path";
 
 const emailFactory = new EmailFactory();
-new DBHash(CONST.DB.PRODUCTION, CONST.EMAIL_CONF.TABLE).init();
-new Credentials().init();
+new DBHash(CONST.DB.PRODUCTION, CONST.DB.TABLE.EMAIL_CONF).create();
+new Credentials(CONST.DB.PRODUCTION).create();
 
 const router = express.Router();
 router.use(bodyParser.json());
 router.use(`/credentials/:action`, async (req, res, next) => {
     const credentials = new Credentials(CONST.DB.PRODUCTION);
-    const confirmationHashes = new DBHash(CONST.DB.PRODUCTION);
+    const confirmationHashes = new DBHash(CONST.DB.PRODUCTION, CONST.DB.TABLE.EMAIL_CONF);
 
     try {
         logger.verbose(`${req.params.action} : ${JSON.stringify(req.body, null, 2)}`);
@@ -58,12 +58,23 @@ router.use(`/credentials/:action`, async (req, res, next) => {
  */ 
 async function register(credentials, confirmationHashes, req, res, next) {
     await credentials.addUser(req.body.username, req.body.email, req.body.password);
-    const hash = confirmationHashes.assign(req.body.username, 16);
+    const confirmationURL = createConfirmationURL(req.body.username, confirmationHashes);
     handleResponse(res, req.originalUrl, { status: CONST.STATUS.SUCCESS });
-    const email = emailFactory.confirmation(req.body.email, hash);
+    const email = emailFactory.confirmation(req.body.email, confirmationURL);
     email.send();
 }
 
+function createConfirmationURL(username, confirmationHashes) {
+    const hash = confirmationHashes.assign(username, 16);
+    return Path.join(CONST.URL.CONFIRMATON, hash);
+}
+
+/**
+ * Log a user into the system.  
+ * Responds with rejected or exception if the username is invalid or the password does not match.
+ * Responds with success if the user has been logged in.
+ * Saves a session hash on success.
+ */
 async function login(credentials, confirmationHashes, req, res, next) {
     const validate = await credentials.validateHash(req.body.username, req.body.password);
     if (validate) {
@@ -98,4 +109,4 @@ async function logout(credentials, confirmationHashes, req, res, next) {
     }
 }
 
-export { router as default, register, login, updateEmail, logout};
+export { router as default, register, createConfirmationURL, login, updateEmail, logout};
