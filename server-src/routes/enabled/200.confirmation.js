@@ -9,6 +9,10 @@ new DBHash(CONST.DB.PRODUCTION).create();
 const router = express.Router();
 router.use(bodyParser.json());
 
+router.use(`/confirmation`, async (req, res, next) => {
+    res.redirect(CONST.URL.PORTAL);
+});
+
 router.use(`/confirmation/:hash`, async (req, res, next) => {
     if (confirm(req.params.hash)) {
         res.redirect(CONST.URL.PORTAL);

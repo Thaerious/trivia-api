@@ -66,7 +66,7 @@ async function register(credentials, confirmationHashes, req, res, next) {
 
 function createConfirmationURL(username, confirmationHashes) {
     const hash = confirmationHashes.assign(username, 16);
-    return Path.join(CONST.URL.CONFIRMATON, hash);
+    return CONST.URL.CONFIRMATON + "/" + hash;
 }
 
 /**

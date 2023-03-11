@@ -14,3 +14,45 @@
 10:02:01 AM 127.0.0.1 POST /credentials/register application/json
 10:02:23 AM 127.0.0.1 POST /credentials/register application/json
 10:02:41 AM 127.0.0.1 GET /confirmation/e59ebce46449ea2b1849dbb65c06e588 
+11:42:54 AM 127.0.0.1 POST /credentials/register application/json
+11:43:30 AM 127.0.0.1 POST /credentials/register application/json
+11:44:28 AM 127.0.0.1 POST /credentials/register application/json
+11:44:34 AM 127.0.0.1 GET / 
+11:44:34 AM 127.0.0.1 GET /favicon.ico 
+11:44:58 AM 127.0.0.1 POST /credentials/register application/json
+11:45:04 AM 127.0.0.1 GET /confirmation/f78f5bdacfee9bf90fcb23f1b7603fd0 
+11:46:46 AM 127.0.0.1 POST /credentials/register application/json
+11:46:55 AM 127.0.0.1 GET /confirmation/f78f5bdacfee9bf90fcb23f1b7603fd0 
+{
+  "status": "exception",
+  "url": "/confirmation/f78f5bdacfee9bf90fcb23f1b7603fd0",
+  "message": "Confirmation hash not found."
+}
+11:47:45 AM 127.0.0.1 POST /credentials/register application/json
+11:48:08 AM 127.0.0.1 GET /confirmation/f78f5bdacfee9bf90fcb23f1b7603fd0 
+{
+  "status": "exception",
+  "url": "/confirmation/f78f5bdacfee9bf90fcb23f1b7603fd0",
+  "message": "Confirmation hash not found."
+}
+11:49:15 AM 127.0.0.1 POST /credentials/register application/json
+11:50:21 AM 127.0.0.1 GET /confirmation/f5d3a7b92521850b1b557bbe765c6dcb 
+11:52:13 AM 127.0.0.1 POST /credentials/register application/json
+11:53:22 AM 127.0.0.1 POST /credentials/register application/json
+11:54:00 AM 127.0.0.1 POST /credentials/register application/json
+11:54:24 AM 127.0.0.1 GET /confirmation 
+11:54:31 AM 127.0.0.1 GET /confirmation 
+11:55:27 AM 127.0.0.1 POST /credentials/register application/json
+{
+  "status": "exception",
+  "url": "/credentials/register",
+  "message": "user already added: ed"
+}
+11:55:34 AM 127.0.0.1 POST /credentials/register application/json
+11:55:59 AM 127.0.0.1 POST /credentials/register application/json
+11:56:04 AM 127.0.0.1 GET /confirmation 
+11:57:33 AM 127.0.0.1 POST /credentials/register application/json
+11:57:51 AM 127.0.0.1 POST /credentials/register application/json
+11:59:11 AM 127.0.0.1 POST /credentials/register application/json
+11:59:52 AM 127.0.0.1 POST /credentials/register application/json
+12:00:03 PM 127.0.0.1 GET /confirmation/4fc66139897c16fc1443b71a6bc13b03 
