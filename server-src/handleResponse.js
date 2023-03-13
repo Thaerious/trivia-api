@@ -1,16 +1,30 @@
 import CONST from "./constants.js";
 import logger from "./setupLogger.js";
 
-function handleResponse(res, url, obj = {}) {
+/**
+ * Normalize JSON response for successfull requests.
+ * 
+ * obj {
+ *    msg : message send to user and logger
+ *    url : url set in response to notify user
+ *    status : default to SUCCESS
+ *    code : http status code
+ * }
+ */
+function handleResponse(res, url, options = {}) {
     res.set('Content-Type', 'application/json');
 
     const msg = JSON.stringify({
-        status: CONST.STATUS.OK,
-        url: url,
-        ...obj
+        status: CONST.STATUS.SUCCESS || options.status,
+        url: options.url,
+        message: options.message,
+        data: {
+            ...options.data
+        }
     }, null, 2);
 
-    logger.veryverbose(msg);
+    if (options.log === undefined || options.log === true) logger.log(msg);
+    res.status(options.code || 200);
     res.write(msg);
     res.end();
 }

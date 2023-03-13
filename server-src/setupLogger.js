@@ -46,15 +46,15 @@ if (args.flags["verbose"]) logger.channel(`verbose`).enabled = true;
 if (args.tally["verbose"] >= 2) logger.channel(`veryverbose`).enabled = true;
 
 logger.channel("log").addHandler((string) => {
-    FS.appendFileSync(logFilename(), string + "\n");
+    FS.appendFileSync(logFilename(), new Date().toLocaleTimeString() + " " + string + "\n");
 });
 
 logger.channel("verbose").addHandler((string) => {
-    FS.appendFileSync(logFilename(), string + "\n");
+    FS.appendFileSync(logFilename(), new Date().toLocaleTimeString() + " " + string + "\n");
 });
 
 logger.channel("veryverbose").addHandler((string) => {
-    FS.appendFileSync(logFilename(), string + "\n");
+    FS.appendFileSync(logFilename(), new Date().toLocaleTimeString() + " " + string + "\n");
 });
 
 const all = logger.all();

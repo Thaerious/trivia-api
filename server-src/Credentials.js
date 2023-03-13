@@ -98,7 +98,7 @@ class Credentials
     }
 
     async validateHash(username, password) {
-        if (!this.hasUser(username)) throw new Error(`unknown user: ${username}`);
+        if (!this.hasUser(username)) return false;
 
         const sql = `SELECT * FROM ${this.table} WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile).prepare(sql);
@@ -113,7 +113,7 @@ class Credentials
      * No return value.
      */
     updateUser(username, email) {
-        if (!this.hasUser(username)) throw new Error(`user already added: ${username}`);
+        if (!this.hasUser(username)) throw new Error(`user already added: '${username}'`);
         const user = new User(username, email);
 
         const sql = `UPDATE ${this.table} SET email = ? WHERE username = ?`;

@@ -7,7 +7,6 @@ import DBHash from "../../DBHash.js";
 import CONST from "../../constants.js";
 import EmailFactory from "../../EmailFactory.js";
 import logger from "../../setupLogger.js";
-import Path from "path";
 
 const emailFactory = new EmailFactory();
 new DBHash(CONST.DB.PRODUCTION, CONST.DB.TABLE.EMAIL_CONF).create();
@@ -55,11 +54,13 @@ router.use(`/credentials/:action`, async (req, res, next) => {
  * - Sends and email to the user
  * - Adds the credentials to the user db table.
  * - Adds a hash to the email confirmation table.
- */ 
+ */
 async function register(credentials, confirmationHashes, req, res, next) {
     await credentials.addUser(req.body.username, req.body.email, req.body.password);
     const confirmationURL = createConfirmationURL(req.body.username, confirmationHashes);
-    handleResponse(res, req.originalUrl, { status: CONST.STATUS.SUCCESS });
+    handleResponse(res, {
+        url : req.originalUrl
+    });
     const email = emailFactory.confirmation(req.body.email, confirmationURL);
     email.send();
 }
@@ -76,12 +77,24 @@ function createConfirmationURL(username, confirmationHashes) {
  * Saves a session hash on success.
  */
 async function login(credentials, confirmationHashes, req, res, next) {
-    const validate = await credentials.validateHash(req.body.username, req.body.password);
+    const username = req.body.username;
+    const validate = await credentials.validateHash(username, req.body.password);
     if (validate) {
-        req.session.user = credentials.getUser(req.body.username);
-        handleResponse(res, req.originalUrl, { status: CONST.STATUS.SUCCESS });
+        req.session.user = credentials.getUser(username);
+        handleResponse(res, {
+            url: req.originalUrl,
+        });
+        logger.log(`user logged in: '${username}'`); 
     } else {
-        handleResponse(res, req.originalUrl, { status: CONST.STATUS.REJECTED });
+        if (!credentials.hasUser(username)) logger.log(`unknown user: '${username}'`);
+        else logger.log(`invalid password for user: '${username}'`);
+            
+        handleError(res, {
+            message: "invalid login credentials",
+            url: req.originalUrl,
+            status: CONST.STATUS.REJECTED,
+            log: false
+        });
     }
 }
 
@@ -89,24 +102,38 @@ async function updateEmail(credentials, confirmationHashes, req, res, next) {
     const validate = await credentials.validateHash(req.body.username, req.body.password);
 
     if (!req.session.user) {
-        handleResponse(res, req.originalUrl, { status: CONST.STATUS.REJECTED });
+        handleResponse(res, { 
+            url : req.originalUrl,
+            status : CONST.STATUS.REJECTED
+        });
     }
     else if (validate) {
         credentials.updateUser(req.body.username, req.body.email);
         req.session.user = credentials.getUser(req.body.username);
-        handleResponse(res, req.originalUrl, { status: CONST.STATUS.SUCCESS });
-    } else {
-        handleResponse(res, req.originalUrl, { status: CONST.STATUS.REJECTED });
+        handleResponse(res, {
+            url: req.originalUrl
+        });
+    }
+    else {
+        handleResponse(res, {
+            url : req.originalUrl,
+            status: CONST.STATUS.REJECTED
+        });
     }
 }
 
 async function logout(credentials, confirmationHashes, req, res, next) {
     if (!req.session.user) {
-        handleResponse(res, req.originalUrl, { status: CONST.STATUS.REJECTED });
+        handleResponse(res, {
+            url : req.originalUrl,
+            status: CONST.STATUS.REJECTED
+        });
     } else {
         delete req.session.user;
-        handleResponse(res, req.originalUrl, { status: CONST.STATUS.SUCCESS });
+        handleResponse(res, {
+            url: req.originalUrl
+        });
     }
 }
 
-export { router as default, register, createConfirmationURL, login, updateEmail, logout};
+export { router as default, register, createConfirmationURL, login, updateEmail, logout };

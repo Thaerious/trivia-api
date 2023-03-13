@@ -4,23 +4,21 @@ import bodyParser from "body-parser";
 import getPem from 'rsa-pem-from-mod-exp';
 import crypto from "crypto";
 import base64url from "base64url";
+import CONST from "../../constants.js";
+import handleResponse from "../../handleResponse.js";
 
 const router = Express.Router();
-const CLIENT_ID = '308309471033-rtkhcbc6mpd9m49n221hmpve5vgrc80f.apps.googleusercontent.com';
-const GOOGLE_URL = 'https://accounts.google.com';
-const DISCOVERY_URL = 'https://accounts.google.com/.well-known/openid-configuration';
-
-const client = new OAuth2Client(CLIENT_ID);
+const client = new OAuth2Client(CONST.GOOGLE.CLIENT_ID);
 
 async function verify(token) {
     const ticket = await client.verifyIdToken({
         idToken: token,
-        audience: CLIENT_ID
+        audience: CONST.GOOGLE.CLIENT_ID
     });
    
     const payload = ticket.getPayload();    
 
-    if (payload.aud !== CLIENT_ID || payload.iss !== GOOGLE_URL) {
+    if (payload.aud !== CONST.GOOGLE.CLIENT_ID || payload.iss !== CONST.GOOGLE.GOOGLE_URL) {
         return false;
     } else {
         return await discoveryDocument(ticket, token);    
@@ -28,7 +26,7 @@ async function verify(token) {
 }
 
 async function discoveryDocument(ticket, token) {
-    const discoverDocument = await (await fetch(DISCOVERY_URL)).json();
+    const discoverDocument = await (await fetch(CONST.GOOGLE.DISCOVERY_URL)).json();
     const json = await fetch(discoverDocument.jwks_uri);
     const googleKeys = (await json.json()).keys;
 
@@ -54,8 +52,17 @@ async function discoveryDocument(ticket, token) {
 router.use("/verify$",
     bodyParser.json(),
     async (req, res, next) => {    
-        await verify(req.body.token).catch(console.error);
-        res.end();
+        await verify(req.body.token).catch((error) => {
+            handleError(res, {
+                message: error,
+                url: req.originalUrl,
+                status: CONST.STATUS.REJECTED
+            });            
+        });
+
+        handleResponse(res, {
+            url: req.originalUrl
+        });
     }
 );
 

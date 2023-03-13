@@ -1,8 +1,6 @@
 import CONST from "./constants.js";
 import logger from "./setupLogger.js";
 
-
-
 function handleError(res, url, err, obj = {}) {
     if (typeof url == "object") return _handleError(res, url);
 
@@ -21,17 +19,20 @@ function handleError(res, url, err, obj = {}) {
     res.end();
 }
 
-function _handleError(res, options) {
+function _handleError(res, options = {}) {
     res.set('Content-Type', 'application/json');
     const msg = JSON.stringify({
         status: CONST.STATUS.EXCEPTION || options.status,
         url: options.url,
         message: options.message,
         cause: options.cause,
+        data: {
+            ...options.data
+        }
     }, null, 2);
 
-    logger.log(msg);
-    res.status(options.status || 422);
+    if (options.log === undefined || options.log === true) logger.log(msg);
+    res.status(options.code || 422);
     res.write(msg);
     res.end();
 }
