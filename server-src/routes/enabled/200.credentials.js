@@ -22,6 +22,9 @@ router.use(`/credentials/:action`, async (req, res, next) => {
         logger.verbose(`${req.params.action} : ${JSON.stringify(req.body, null, 2)}`);
 
         switch (req.params.action) {
+            case "status":
+                await status(credentials, confirmationHashes, req, res, next);
+                break
             case "register":
                 await register(credentials, confirmationHashes, req, res, next);
                 break;
@@ -36,18 +39,31 @@ router.use(`/credentials/:action`, async (req, res, next) => {
                 break;
             default:
                 handleError(res, {
-                    url: req.originalUrl,
                     message: `unknown action ${req.params?.action}`
                 });
                 break;
         }
     } catch (error) {
-        console.log(error);
-        handleError(res, req.originalUrl, error);
+        handleError(res, error);
     } finally {
         res.end();
     }
 });
+
+
+async function status(credentials, confirmationHashes, req, res, next) {
+    if (!req.session[CONST.SESSION.LOGGED_IN]) {
+        req.session[CONST.SESSION.LOGGED_IN] = false;
+    }
+
+    const status = req.session[CONST.SESSION.LOGGED_IN];
+
+    handleResponse(res, {
+        data: {
+            logged_in: status
+        }
+    });
+}
 
 /**
  * Register a new user.
@@ -58,9 +74,7 @@ router.use(`/credentials/:action`, async (req, res, next) => {
 async function register(credentials, confirmationHashes, req, res, next) {
     await credentials.addUser(req.body.username, req.body.email, req.body.password);
     const confirmationURL = createConfirmationURL(req.body.username, confirmationHashes);
-    handleResponse(res, {
-        url : req.originalUrl
-    });
+    handleResponse(res);
     const email = emailFactory.confirmation(req.body.email, confirmationURL);
     email.send();
 }
@@ -80,18 +94,15 @@ async function login(credentials, confirmationHashes, req, res, next) {
     const username = req.body.username;
     const validate = await credentials.validateHash(username, req.body.password);
     if (validate) {
-        req.session.user = credentials.getUser(username);
-        handleResponse(res, {
-            url: req.originalUrl,
-        });
-        logger.log(`user logged in: '${username}'`); 
+        req.session[CONST.SESSION.LOGGED_IN] = true;
+        logger.log(`user logged in: '${username}'`);
+        handleResponse(res);
     } else {
         if (!credentials.hasUser(username)) logger.log(`unknown user: '${username}'`);
         else logger.log(`invalid password for user: '${username}'`);
-            
+
         handleError(res, {
             message: "invalid login credentials",
-            url: req.originalUrl,
             status: CONST.STATUS.REJECTED,
             log: false
         });
@@ -102,38 +113,26 @@ async function updateEmail(credentials, confirmationHashes, req, res, next) {
     const validate = await credentials.validateHash(req.body.username, req.body.password);
 
     if (!req.session.user) {
-        handleResponse(res, { 
-            url : req.originalUrl,
-            status : CONST.STATUS.REJECTED
+        handleResponse(res, {
+            status: CONST.STATUS.REJECTED
         });
     }
     else if (validate) {
         credentials.updateUser(req.body.username, req.body.email);
         req.session.user = credentials.getUser(req.body.username);
-        handleResponse(res, {
-            url: req.originalUrl
-        });
+        handleResponse(res);
     }
     else {
         handleResponse(res, {
-            url : req.originalUrl,
+            url: req.originalUrl,
             status: CONST.STATUS.REJECTED
         });
     }
 }
 
 async function logout(credentials, confirmationHashes, req, res, next) {
-    if (!req.session.user) {
-        handleResponse(res, {
-            url : req.originalUrl,
-            status: CONST.STATUS.REJECTED
-        });
-    } else {
-        delete req.session.user;
-        handleResponse(res, {
-            url: req.originalUrl
-        });
-    }
+    req.session[CONST.SESSION.LOGGED_IN] = false;
+    handleResponse(res);
 }
 
 export { router as default, register, createConfirmationURL, login, updateEmail, logout };

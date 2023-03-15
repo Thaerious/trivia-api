@@ -5,7 +5,7 @@ import ParseArgs from "@thaerious/parseargs";
 import DBHash from "../server-src/DBHash.js";
 import CONST from "../server-src/constants.js";
 import { createConfirmationURL } from "../server-src/routes/enabled/200.credentials.js";
-import Credentials, { User } from "../server-src/Credentials.js";
+import Credentials from "../server-src/Credentials.js";
 import { confirm } from "../server-src/routes/enabled/200.confirmation.js";
 
 CONST.DB.PRODUCTION = Path.join("test", "db", "test_credentials.db");

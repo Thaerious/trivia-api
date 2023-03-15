@@ -52,17 +52,17 @@ async function discoveryDocument(ticket, token) {
 router.use("/verify$",
     bodyParser.json(),
     async (req, res, next) => {    
-        await verify(req.body.token).catch((error) => {
+        const verified = await verify(req.body.token).catch((error) => {
             handleError(res, {
                 message: error,
-                url: req.originalUrl,
                 status: CONST.STATUS.REJECTED
             });            
         });
 
-        handleResponse(res, {
-            url: req.originalUrl
-        });
+        if (verified) {
+            req.session[CONST.SESSION.LOGGED_IN] = true;
+            handleResponse(res);                        
+        }
     }
 );
 

@@ -1,0 +1,631 @@
+9:16:30 AM 9:16:30 AM 127.0.0.1 POST /credentials/status application/json
+9:16:30 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:16:30 AM 9:16:30 AM 127.0.0.1 POST /credentials/status application/json
+9:16:30 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:24:10 AM 9:24:10 AM 127.0.0.1 POST /credentials/status application/json
+9:24:10 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:24:10 AM 9:24:10 AM 127.0.0.1 POST /credentials/status application/json
+9:24:10 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:24:24 AM 9:24:24 AM 127.0.0.1 POST /credentials/status application/json
+9:24:24 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:24:41 AM 9:24:41 AM 127.0.0.1 POST /credentials/status application/json
+9:24:41 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:24:45 AM 9:24:45 AM 127.0.0.1 POST /credentials/login application/json
+9:24:45 AM user logged in: 'ed'
+9:24:45 AM {
+  "status": "success",
+  "url": "/credentials/login",
+  "data": {}
+}
+9:24:45 AM 9:24:45 AM 127.0.0.1 POST /credentials/status application/json
+9:24:45 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:24:45 AM 9:24:45 AM 127.0.0.1 POST /credentials/status application/json
+9:24:45 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:24:56 AM 9:24:56 AM 127.0.0.1 POST /credentials/status application/json
+9:24:56 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:25:03 AM 9:25:03 AM 127.0.0.1 POST /credentials/login application/json
+9:25:03 AM user logged in: 'ed'
+9:25:03 AM {
+  "status": "success",
+  "url": "/credentials/login",
+  "data": {}
+}
+9:25:03 AM 9:25:03 AM 127.0.0.1 POST /credentials/status application/json
+9:25:03 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:25:03 AM 9:25:03 AM 127.0.0.1 POST /credentials/status application/json
+9:25:03 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:25:26 AM 9:25:26 AM 127.0.0.1 POST /credentials/status application/json
+9:25:26 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:25:57 AM 9:25:57 AM 127.0.0.1 POST /credentials/status application/json
+9:25:57 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:26:09 AM 9:26:09 AM 127.0.0.1 POST /credentials/status application/json
+9:26:09 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:26:32 AM 9:26:32 AM 127.0.0.1 POST /credentials/status application/json
+9:26:32 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:28:41 AM 9:28:41 AM 127.0.0.1 POST /credentials/status application/json
+9:28:41 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:28:52 AM 9:28:52 AM 127.0.0.1 POST /credentials/status application/json
+9:28:52 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:28:55 AM 9:28:55 AM 127.0.0.1 POST /credentials/status application/json
+9:28:55 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:29:02 AM 9:29:02 AM 127.0.0.1 POST /credentials/status application/json
+9:29:02 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:30:44 AM 9:30:44 AM 127.0.0.1 POST /credentials/status application/json
+9:30:44 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:30:44 AM 9:30:44 AM 127.0.0.1 POST /credentials/status application/json
+9:30:44 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:31:26 AM 9:31:26 AM 127.0.0.1 POST /credentials/status application/json
+9:31:26 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:31:27 AM 9:31:27 AM 127.0.0.1 POST /credentials/logout application/json
+9:31:27 AM {
+  "status": "success",
+  "url": "/credentials/logout",
+  "data": {}
+}
+9:31:27 AM 9:31:27 AM 127.0.0.1 POST /credentials/status application/json
+9:31:27 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:31:32 AM 9:31:32 AM 127.0.0.1 POST /credentials/login application/json
+9:31:32 AM user logged in: 'ed'
+9:31:32 AM {
+  "status": "success",
+  "url": "/credentials/login",
+  "data": {}
+}
+9:31:32 AM 9:31:32 AM 127.0.0.1 POST /credentials/status application/json
+9:31:32 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:32:29 AM 9:32:29 AM 127.0.0.1 POST /credentials/logout application/json
+9:32:29 AM {
+  "status": "success",
+  "url": "/credentials/logout",
+  "data": {}
+}
+9:32:29 AM 9:32:29 AM 127.0.0.1 POST /credentials/status application/json
+9:32:29 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:32:34 AM 9:32:34 AM 127.0.0.1 POST /verify application/json
+9:32:34 AM {
+  "status": "success",
+  "url": "/verify",
+  "data": {}
+}
+9:32:34 AM 9:32:34 AM 127.0.0.1 POST /credentials/status application/json
+9:32:34 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:32:37 AM 9:32:37 AM 127.0.0.1 POST /credentials/status application/json
+9:32:37 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:32:39 AM 9:32:39 AM 127.0.0.1 POST /credentials/logout application/json
+9:32:39 AM {
+  "status": "success",
+  "url": "/credentials/logout",
+  "data": {}
+}
+9:32:39 AM 9:32:39 AM 127.0.0.1 POST /credentials/status application/json
+9:32:39 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:37:44 AM 9:37:44 AM 127.0.0.1 POST /credentials/login application/json
+9:37:44 AM invalid password for user: 'ed'
+9:37:45 AM 9:37:45 AM 127.0.0.1 POST /credentials/login application/json
+9:37:45 AM invalid password for user: 'ed'
+9:37:50 AM 9:37:50 AM 127.0.0.1 POST /credentials/login application/json
+9:37:50 AM invalid password for user: 'ed'
+9:37:58 AM 9:37:58 AM 127.0.0.1 POST /credentials/status application/json
+9:37:58 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:38:02 AM 9:38:02 AM 127.0.0.1 POST /credentials/login application/json
+9:38:02 AM user logged in: 'ed'
+9:38:02 AM {
+  "status": "success",
+  "url": "/credentials/login",
+  "data": {}
+}
+9:38:02 AM 9:38:02 AM 127.0.0.1 POST /credentials/status application/json
+9:38:02 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:40:46 AM 9:40:46 AM 127.0.0.1 POST /credentials/status application/json
+9:40:46 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:41:57 AM 9:41:57 AM 127.0.0.1 POST /credentials/status application/json
+9:41:57 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:42:28 AM 9:42:28 AM 127.0.0.1 POST /credentials/status application/json
+9:42:28 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:42:55 AM 9:42:55 AM 127.0.0.1 POST /credentials/status application/json
+9:42:55 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:46:19 AM 9:46:19 AM 127.0.0.1 POST /credentials/status application/json
+9:46:19 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+9:46:25 AM 9:46:25 AM 127.0.0.1 POST /credentials/logout application/json
+9:46:25 AM {
+  "status": "success",
+  "url": "/credentials/logout",
+  "data": {}
+}
+9:46:25 AM 9:46:25 AM 127.0.0.1 POST /credentials/status application/json
+9:46:25 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:48:10 AM 9:48:10 AM 127.0.0.1 POST /credentials/status application/json
+9:48:10 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:49:00 AM 9:49:00 AM 127.0.0.1 POST /credentials/status application/json
+9:49:00 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:49:02 AM 9:49:02 AM 127.0.0.1 POST /credentials/status application/json
+9:49:02 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:49:35 AM 9:49:35 AM 127.0.0.1 POST /credentials/status application/json
+9:49:35 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:49:38 AM 9:49:38 AM 127.0.0.1 POST /credentials/status application/json
+9:49:38 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:49:58 AM 9:49:58 AM 127.0.0.1 POST /credentials/status application/json
+9:49:58 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:50:02 AM 9:50:02 AM 127.0.0.1 POST /credentials/status application/json
+9:50:02 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:50:08 AM 9:50:08 AM 127.0.0.1 POST /credentials/status application/json
+9:50:08 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:50:09 AM 9:50:09 AM 127.0.0.1 POST /credentials/status application/json
+9:50:09 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:50:16 AM 9:50:16 AM 127.0.0.1 POST /credentials/status application/json
+9:50:16 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:50:20 AM 9:50:20 AM 127.0.0.1 POST /credentials/status application/json
+9:50:20 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:50:26 AM 9:50:26 AM 127.0.0.1 POST /credentials/status application/json
+9:50:26 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:51:12 AM 9:51:12 AM 127.0.0.1 POST /credentials/status application/json
+9:51:12 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:51:17 AM 9:51:17 AM 127.0.0.1 POST /credentials/status application/json
+9:51:17 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:51:38 AM 9:51:38 AM 127.0.0.1 POST /credentials/status application/json
+9:51:38 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:51:58 AM 9:51:58 AM 127.0.0.1 POST /credentials/status application/json
+9:51:58 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:52:49 AM 9:52:49 AM 127.0.0.1 POST /credentials/status application/json
+9:52:49 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:52:50 AM 9:52:50 AM 127.0.0.1 POST /credentials/status application/json
+9:52:50 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:53:01 AM 9:53:01 AM 127.0.0.1 POST /credentials/status application/json
+9:53:01 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:53:29 AM 9:53:29 AM 127.0.0.1 POST /credentials/status application/json
+9:53:29 AM 9:53:29 AM 127.0.0.1 POST /credentials/status application/json
+9:53:29 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:53:29 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:53:31 AM 9:53:31 AM 127.0.0.1 POST /credentials/status application/json
+9:53:31 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:54:06 AM 9:54:06 AM 127.0.0.1 POST /credentials/status application/json
+9:54:06 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:54:09 AM 9:54:09 AM 127.0.0.1 POST /credentials/status application/json
+9:54:09 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:54:51 AM 9:54:51 AM 127.0.0.1 POST /credentials/status application/json
+9:54:51 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:54:54 AM 9:54:54 AM 127.0.0.1 POST /credentials/status application/json
+9:54:54 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:55:40 AM 9:55:40 AM 127.0.0.1 POST /credentials/status application/json
+9:55:40 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:55:46 AM 9:55:46 AM 127.0.0.1 POST /credentials/status application/json
+9:55:46 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:56:07 AM 9:56:07 AM 127.0.0.1 POST /credentials/status application/json
+9:56:07 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:56:21 AM 9:56:21 AM 127.0.0.1 POST /credentials/status application/json
+9:56:21 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:57:03 AM 9:57:03 AM 127.0.0.1 POST /credentials/status application/json
+9:57:03 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:57:07 AM 9:57:07 AM 127.0.0.1 POST /credentials/status application/json
+9:57:07 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": false
+  }
+}
+9:57:11 AM 9:57:11 AM 127.0.0.1 POST /credentials/login application/json
+9:57:11 AM user logged in: 'ed'
+9:57:11 AM {
+  "status": "success",
+  "url": "/credentials/login",
+  "data": {}
+}
+9:57:11 AM 9:57:11 AM 127.0.0.1 POST /credentials/status application/json
+9:57:11 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+11:21:15 AM 11:21:15 AM 127.0.0.1 POST /credentials/status application/json
+11:21:15 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}

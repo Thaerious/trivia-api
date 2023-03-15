@@ -11,12 +11,11 @@ import logger from "./setupLogger.js";
  *    code : http status code
  * }
  */
-function handleResponse(res, url, options = {}) {
+function handleResponse(res, options = {}) {
     res.set('Content-Type', 'application/json');
-
     const msg = JSON.stringify({
         status: CONST.STATUS.SUCCESS || options.status,
-        url: options.url,
+        url: options.url || res.req.originalUrl,
         message: options.message,
         data: {
             ...options.data

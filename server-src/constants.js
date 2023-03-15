@@ -38,6 +38,9 @@ export default {
         CLIENT_ID: '308309471033-rtkhcbc6mpd9m49n221hmpve5vgrc80f.apps.googleusercontent.com',
         GOOGLE_URL: 'https://accounts.google.com',
         DISCOVERY_URL: 'https://accounts.google.com/.well-known/openid-configuration'
+    },
+    SESSION: {
+        LOGGED_IN: 'login_status'
     }
 };
 

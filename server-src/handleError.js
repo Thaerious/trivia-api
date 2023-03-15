@@ -23,7 +23,7 @@ function _handleError(res, options = {}) {
     res.set('Content-Type', 'application/json');
     const msg = JSON.stringify({
         status: CONST.STATUS.EXCEPTION || options.status,
-        url: options.url,
+        url: options.url || res.req.originalUrl,
         message: options.message,
         cause: options.cause,
         data: {

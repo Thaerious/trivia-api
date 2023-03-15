@@ -2,7 +2,7 @@ import assert from "assert";
 import Path from "path";
 import FS from "fs";
 import CONST from "../server-src/constants.js";
-import Credentials, { User } from "../server-src/Credentials.js";
+import Credentials from "../server-src/Credentials.js";
 import ParseArgs from "@thaerious/parseargs";
 const args = new ParseArgs().run();
 
@@ -71,18 +71,19 @@ describe("Credentials.js", function () {
             });
         });        
 
-        it("#has method returns false on an empty instance (before adding)", function () {
-            const actual = this.credentials.hasUser("adam");
+        it("#has method returns false on an empty instance (before adding)", async function () {
+            const actual = this.credentials.hasUser("abraham");
             assert.ok(!actual);
         });
 
         it("returns a user object when successfull", async function () {
             const user = await this.credentials.addUser("adam", "adam@eden.com", "noapples");
-            assert.ok(user instanceof User);
+            assert.ok(typeof user === 'object');
         });
 
-        it("#has method returns true after user has been added", function () {
-            const actual = this.credentials.hasUser("adam");
+        it("#has method returns true after user has been added", async function () {
+            await this.credentials.addUser("boudica", "boudica@eden.com", "noapples");
+            const actual = this.credentials.hasUser("boudica");
             assert.ok(actual);
         });
 
@@ -211,6 +212,7 @@ describe("Credentials.js", function () {
     describe("update a user's email", async function () {
         before(function () {
             this.credentials = new Credentials(CONST.DB.PRODUCTION);
+            this.credentials.create();
         });
 
         it("email changes to new value", async function () {
