@@ -1,11 +1,8 @@
 import CONST from "./constants.js";
-import FS from "fs";
-import DB from "./DB.js";
 import sqlite3 from "better-sqlite3";
 import bcrypt from "bcryptjs";
 
-class Credentials 
-{
+class Credentials {
     constructor(dbFile, table = "credentials") {
         this.dbFile = dbFile;
         this.table = table;
@@ -20,7 +17,7 @@ class Credentials
                 hash VARCHAR(64), 
                 confirmed INTEGER DEFAULT 0
             )`)
-        .run();
+            .run();
         return this;
     }
 
@@ -31,16 +28,16 @@ class Credentials
         const sql = `SELECT * FROM ${this.table} WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         const row = stmt.get(username);
-        return row.confirmed !== 0;        
+        return row.confirmed !== 0;
     }
 
     setConfirmed(username) {
         if (!username) throw new Error(`undefined username`);
         if (!this.hasUser(username)) throw new Error(`unknown user: ${username}`);
-        
+
         const sql = `UPDATE ${this.table} SET confirmed = 1 WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
-        stmt.run(username);               
+        stmt.run(username);
     }
 
     /**
