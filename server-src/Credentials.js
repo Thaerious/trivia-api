@@ -2,16 +2,18 @@ import CONST from "./constants.js";
 import sqlite3 from "better-sqlite3";
 import bcrypt from "bcryptjs";
 
+
 class Credentials {
-    constructor(dbFile, table = "credentials") {
+    static TABLE = "credentials";
+
+    constructor(dbFile) {
         this.dbFile = dbFile;
-        this.table = table;
         this.sqlOptions = {};
     }
 
     create() {
         new sqlite3(this.dbFile, this.sqlOptions).prepare(`
-            CREATE TABLE IF NOT EXISTS ${this.table} ( \
+            CREATE TABLE IF NOT EXISTS ${Credentials.TABLE} ( \
                 username VARCHAR(64) primary key, \
                 email VARCHAR(64), \
                 hash VARCHAR(64), 
@@ -25,7 +27,7 @@ class Credentials {
         if (!username) throw new Error(`undefined username`);
         if (!this.hasUser(username)) throw new Error(`unknown user: ${username}`);
 
-        const sql = `SELECT * FROM ${this.table} WHERE username = ?`;
+        const sql = `SELECT * FROM ${Credentials.TABLE} WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         const row = stmt.get(username);
         return row.confirmed !== 0;
@@ -35,7 +37,7 @@ class Credentials {
         if (!username) throw new Error(`undefined username`);
         if (!this.hasUser(username)) throw new Error(`unknown user: ${username}`);
 
-        const sql = `UPDATE ${this.table} SET confirmed = 1 WHERE username = ?`;
+        const sql = `UPDATE ${Credentials.TABLE} SET confirmed = 1 WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         stmt.run(username);
     }
@@ -52,7 +54,7 @@ class Credentials {
         if (this.hasUser(username)) throw new Error(`user already added: ${username}`);
         if (this.hasEmail(email)) throw new Error(`email already in use: ${email}`);
 
-        const sql = `INSERT INTO ${this.table} (username, email) VALUES (?, ?)`;
+        const sql = `INSERT INTO ${Credentials.TABLE} (username, email) VALUES (?, ?)`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         stmt.run(username, email);
         await this.setHash(username, password);
@@ -69,7 +71,7 @@ class Credentials {
         if (!this.hasUser(username)) throw new Error(`unknown user: ${username}`);
 
         const hash = await bcrypt.hash(password, CONST.DB.SALT_ITERATIONS);
-        const sql = `UPDATE ${this.table} SET hash = ? WHERE username = ?`;
+        const sql = `UPDATE ${Credentials.TABLE} SET hash = ? WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         stmt.run(hash, username);
 
@@ -80,7 +82,7 @@ class Credentials {
         if (!username) throw new Error(`undefined username`);
         if (!this.hasUser(username)) throw new Error(`unknown user: ${username}`);
 
-        const sql = `SELECT * FROM ${this.table} WHERE username = ?`;
+        const sql = `SELECT * FROM ${Credentials.TABLE} WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         const row = stmt.get(username);
         return row.hash;
@@ -89,9 +91,9 @@ class Credentials {
     async validateHash(username, password) {
         if (!this.hasUser(username)) return false;
 
-        const sql = `SELECT * FROM ${this.table} WHERE username = ?`;
+        const sql = `SELECT * FROM ${Credentials.TABLE} WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
-        const row = stmt.get(username); ``
+        const row = stmt.get(username); 
 
         return bcrypt.compare(password, row.hash);
     }
@@ -104,7 +106,7 @@ class Credentials {
     updateUser(username, email) {
         console.log(`update user ${username} ${email}`);
         if (!this.hasUser(username)) throw new Error(`user not added: '${username}'`);
-        const sql = `UPDATE ${this.table} SET email = ? WHERE username = ?`;
+        const sql = `UPDATE ${Credentials.TABLE} SET email = ? WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         stmt.run(email, username);
         return this.getUser(username);
@@ -117,7 +119,7 @@ class Credentials {
      */
     getUser(username) {
         if (!this.hasUser(username)) throw new Error(`unknown user: ${username}`);
-        const sql = `SELECT * FROM ${this.table} WHERE username = ?`;
+        const sql = `SELECT * FROM ${Credentials.TABLE} WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         const results = stmt.get(username);
         return results;
@@ -127,7 +129,7 @@ class Credentials {
      * True if the username exists, otherwise false.
      */
     hasUser(username) {
-        const sql = `SELECT * FROM ${this.table} WHERE username = ?`;
+        const sql = `SELECT * FROM ${Credentials.TABLE} WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         const results = stmt.get(username);
         return results !== undefined;
@@ -137,7 +139,7 @@ class Credentials {
      * True if the email has alredy been used, otherwise false.
      */
     hasEmail(email) {
-        const sql = `SELECT * FROM ${this.table} WHERE email = ?`;
+        const sql = `SELECT * FROM ${Credentials.TABLE} WHERE email = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         const results = stmt.get(email);
         return results !== undefined;
@@ -148,7 +150,7 @@ class Credentials {
      * Return true if the user did exist, otherwise false.
      */
     removeUser(username) {
-        const sql = `DELETE FROM ${this.table} WHERE username = ?`;
+        const sql = `DELETE FROM ${Credentials.TABLE} WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         const info = stmt.run(username);
         return info.changes > 0;
