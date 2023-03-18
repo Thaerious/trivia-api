@@ -9,14 +9,14 @@ class GameStore {
 
     constructor(dbFile) {
         this.dbFile = dbFile;
-        this.sqlOptions = { verbose : console.log };
+        this.sqlOptions = { /* verbose : console.log */ };
     }
 
     create() {
         new sqlite3(this.dbFile, this.sqlOptions).prepare(`
             CREATE TABLE IF NOT EXISTS ${GameStore.DIR_TABLE} (
                 gameid INTEGER PRIMARY KEY AUTOINCREMENT,
-                gamename VARCHAR(32),
+                gamename VARCHAR(32) NOT NULL,
                 username VARCHAR(64) REFERENCES ${Credentials.TABLE}(username),
                 UNIQUE(gamename, username)
             )`)
@@ -25,21 +25,21 @@ class GameStore {
         new sqlite3(this.dbFile, this.sqlOptions).prepare(`
             CREATE TABLE IF NOT EXISTS ${GameStore.CAT_TABLE} (
                 gameid INTEGER REFERENCES ${GameStore.DIR_TABLE}(gameid),
-                round INTEGER,
-                col INTEGER,
-                desc VARCHAR(64)
+                round INTEGER NOT NULL,
+                col INTEGER NOT NULL,
+                desc VARCHAR(64) NOT NULL
             )`)
             .run();
 
         new sqlite3(this.dbFile, this.sqlOptions).prepare(`
             CREATE TABLE IF NOT EXISTS ${GameStore.DATA_TABLE} (
                 gameid INTEGER REFERENCES ${GameStore.DIR_TABLE}(gameid),
-                round INTEGER,
-                col INTEGER,
-                row INTEGER,
-                value INTEGER,
-                question VARCHAR(256),
-                answer VARCHAR(256),
+                round INTEGER NOT NULL,
+                col INTEGER NOT NULL,
+                row INTEGER NOT NULL,
+                value INTEGER NOT NULL,
+                question VARCHAR(256) NOT NULL,
+                answer VARCHAR(256) NOT NULL,
                 PRIMARY KEY(gameid, round, col, row)
             )`)
             .run();
@@ -47,36 +47,25 @@ class GameStore {
         return this;
     }
 
-    newGame(gamename, username) {
-        if (!username) throw new Error(`undefined username`);
-        if (!gamename) throw new Error(`undefined gamename`);
-
+    newGame({gamename, username}) {
         const sql = `INSERT INTO ${GameStore.DIR_TABLE} (gamename, username) VALUES (?, ?)`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         return stmt.run(gamename, username).lastInsertRowid;
     }
 
-    deleteGame(gamename, username) {
-        if (!username) throw new Error(`undefined username`);
-        if (!gamename) throw new Error(`undefined gamename`);
-
+    deleteGame({gamename, username}) {
         const sql = `DELETE FROM ${GameStore.DIR_TABLE} WHERE gamename = ? AND username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         return stmt.run(gamename, username);
     }
 
-    getGame(gameid) {
-        if (!gameid) throw new Error(`undefined gameid`);
-
+    getGame({gameid}) {
         const sql = `SELECT * FROM ${GameStore.DIR_TABLE} WHERE gameid = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
-        const row = stmt.get(gameid);
-        return row;
+        return stmt.get(gameid);
     }
 
-    listGames(username) {
-        if (!username) throw new Error(`undefined username`);
-
+    listGames({username}) {
         const sql = `SELECT gamename FROM ${GameStore.DIR_TABLE} WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         const rows = stmt.all(username);
@@ -89,29 +78,28 @@ class GameStore {
         return games;
     }
 
-    addQuestion(data) {
+    addQuestion({gameid, round, col, row, value, question, answer}) {
         const sql = `INSERT INTO ${GameStore.DATA_TABLE} VALUES (?, ?, ?, ?, ?, ?, ?)`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         return stmt.run(
-            data.gameid,
-            data.round,
-            data.col,
-            data.row,
-            data.value,
-            data.question,
-            data.answer
+            gameid,
+            round,
+            col,
+            row,
+            value,
+            question,
+            answer
         ).lastInsertRowid;
     }
 
-    getQuestion(data) {
+    getQuestion({gameid, round, col, row}) {
         const sql = `SELECT * FROM ${GameStore.DATA_TABLE}
             WHERE gameid = ?
             AND round = ?
             AND col = ?
             AND row = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
-        const row = stmt.get(data.gameid, data.round, data.col, data.row);
-        return row;
+        return stmt.get(gameid, round, col, row);
     }
 
     deleteQuestion({gameid, round, col, row}) {

@@ -1,7 +1,6 @@
 import assert from "assert";
 import Path from "path";
 import FS from "fs";
-import DB from "../server-src/DB.js";
 import Credentials from "../server-src/Credentials.js";
 import GameStore from "../server-src/GameStore.js";
 import ParseArgs from "@thaerious/parseargs";
@@ -67,7 +66,7 @@ describe("GameStore.js", function () {
             this.credentials.create();
             
             this.credentials.addUser("danuta", "danuta@mail.com", "supersecret");
-            this.gameID = this.gameStore.newGame("my first game", "danuta");
+            this.gameID = this.gameStore.newGame({ gamename: "my first game", username: "danuta"});
         });
 
         it("The game id returned by newGame exists", function () {
@@ -75,7 +74,8 @@ describe("GameStore.js", function () {
         });
 
         it("Retrieving the game by the id returns the correct game", function () {
-            const gameinfo = this.gameStore.getGame(this.gameID);
+            const gameinfo = this.gameStore.getGame({ gameid: this.gameID });
+            console.log(gameinfo);
             assert.strictEqual(gameinfo.gameid, this.gameID);
             assert.strictEqual(gameinfo.gamename, "my first game");
             assert.strictEqual(gameinfo.username, "danuta");
@@ -90,29 +90,29 @@ describe("GameStore.js", function () {
             this.credentials.create();
             
             this.credentials.addUser("rashid", "rashid@mail.com", "supersecret");
-            this.gameID1 = this.gameStore.newGame("my first game", "rashid");
-            this.gameID2 = this.gameStore.newGame("my second game", "rashid");
-            this.gameStore.deleteGame("my first game", "rashid");
-            this.gameID3 = this.gameStore.newGame("my third game", "rashid");
+            this.gameID1 = this.gameStore.newGame({gamename: "my first game", username: "rashid"});
+            this.gameID2 = this.gameStore.newGame({gamename: "my second game", username: "rashid"});
+            this.gameStore.deleteGame({gamename: "my first game", username: "rashid"});
+            this.gameID3 = this.gameStore.newGame({gamename: "my third game", username: "rashid"});
         });
 
         it("The list has two entries", function () {
-            const actual = this.gameStore.listGames("rashid");
+            const actual = this.gameStore.listGames({username: "rashid"});
             assert.ok(actual.length, 2);
         });
 
         it("The first game doesn't exist", function () {
-            const actual = this.gameStore.getGame(this.gameID1);
+            const actual = this.gameStore.getGame({gameid: this.gameID1});
             assert.ok(!actual);
         });
 
         it("The second game does exist", function () {
-            const actual = this.gameStore.getGame(this.gameID2);
+            const actual = this.gameStore.getGame({gameid: this.gameID2});
             assert.ok(actual);
         });
         
         it("The third game does exist", function () {
-            const actual = this.gameStore.getGame(this.gameID3);
+            const actual = this.gameStore.getGame({gameid: this.gameID3});
             assert.ok(actual);
         });
     })    
@@ -125,29 +125,29 @@ describe("GameStore.js", function () {
             this.credentials.create();
             
             this.credentials.addUser("abdur", "abdur@mail.com", "supersecret");
-            this.gameID1 = this.gameStore.newGame("my first game", "abdur");
-            this.gameID2 = this.gameStore.newGame("my second game", "abdur");
-            this.gameStore.deleteGame("my first game", "abdur");
-            this.gameID3 = this.gameStore.newGame("my third game", "abdur");
+            this.gameID1 = this.gameStore.newGame({gamename: "my first game", username: "abdur"});
+            this.gameID2 = this.gameStore.newGame({gamename: "my second game", username: "abdur"});
+            this.gameStore.deleteGame({gamename: "my first game", username: "abdur"});
+            this.gameID3 = this.gameStore.newGame({gamename: "my third game", username: "abdur"});
         });
 
         it("The list has two entries", function () {
-            const actual = this.gameStore.listGames("abdur");
+            const actual = this.gameStore.listGames({username: "abdur"});
             assert.ok(actual.length, 2);
         });
 
         it("The list does not contain the first game", function () {
-            const actual = this.gameStore.listGames("abdur");
+            const actual = this.gameStore.listGames({username: "abdur"});
             assert.strictEqual(actual.indexOf("my first game"), -1);
         });   
 
         it("The list contains the second game", function () {
-            const actual = this.gameStore.listGames("abdur");
+            const actual = this.gameStore.listGames({username: "abdur"});
             assert.notStrictEqual(actual.indexOf("my second game"), -1);
         });        
 
         it("The list contains the third game", function () {
-            const actual = this.gameStore.listGames("abdur");
+            const actual = this.gameStore.listGames({username: "abdur"});
             assert.notStrictEqual(actual.indexOf("my third game"), -1);
         });              
     })        
@@ -160,7 +160,7 @@ describe("GameStore.js", function () {
             this.credentials.create();
             
             this.credentials.addUser("socrates", "socrates@mail.com", "supersecret");
-            this.gameID = this.gameStore.newGame("my first game", "socrates");
+            this.gameID = this.gameStore.newGame({gamename: "my first game", username: "socrates"});
             
             this.gameStore.addQuestion({
                 gameid: this.gameID,
@@ -196,7 +196,7 @@ describe("GameStore.js", function () {
             this.credentials.create();
             
             this.credentials.addUser("Ninsun", "Ninsun@mail.com", "supersecret");
-            this.gameID = this.gameStore.newGame("my first game", "Ninsun");
+            this.gameID = this.gameStore.newGame({gamename: "my first game", username: "Ninsun"});
             
             this.gameStore.addQuestion({
                 gameid: this.gameID,
@@ -237,7 +237,7 @@ describe("GameStore.js", function () {
             this.credentials.create();
             
             this.credentials.addUser("Yaffe", "Yaffe@mail.com", "supersecret");
-            this.gameID = this.gameStore.newGame("my first game", "Yaffe");
+            this.gameID = this.gameStore.newGame({gamename: "my first game", username: "Yaffe"});
             
             this.gameStore.addQuestion({
                 gameid: this.gameID,
@@ -278,7 +278,7 @@ describe("GameStore.js", function () {
             this.credentials.create();
             
             this.credentials.addUser("Ottmar", "Ottmar@mail.com", "supersecret");
-            this.gameID = this.gameStore.newGame("my first game", "Ottmar");
+            this.gameID = this.gameStore.newGame({gamename: "my first game", username: "Ottmar"});
             
             this.gameStore.setCategory({
                 gameid: this.gameID,
@@ -320,7 +320,7 @@ describe("GameStore.js", function () {
             this.credentials.create();
             
             this.credentials.addUser("Pallabi", "Pallabi@mail.com", "supersecret");
-            this.gameID = this.gameStore.newGame("my first game", "Pallabi");
+            this.gameID = this.gameStore.newGame({gamename: "my first game", username: "Pallabi"});
             
             this.gameStore.setCategory({
                 gameid: this.gameID,
