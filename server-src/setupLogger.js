@@ -45,6 +45,16 @@ logger.channel(`veryverbose`).enabled = false;
 if (args.flags["verbose"]) logger.channel(`verbose`).enabled = true;
 if (args.tally["verbose"] >= 2) logger.channel(`veryverbose`).enabled = true;
 
+logger.channel("error").addHandler((error) => {
+    if (error instanceof Error) {
+        FS.appendFileSync(logFilename(), `${new Date().toLocaleTimeString()} ERROR ${error.message} \n`);
+        FS.appendFileSync(logFilename(), error.stack);
+    } else {
+        FS.appendFileSync(logFilename(), new Date().toLocaleTimeString() + " " + error + "\n");
+    }
+});
+
+
 logger.channel("log").addHandler((string) => {
     FS.appendFileSync(logFilename(), new Date().toLocaleTimeString() + " " + string + "\n");
 });

@@ -1,15 +1,17 @@
 import CONST from "./constants.js";
 import sqlite3 from "better-sqlite3";
 import Credentials from "./Credentials.js";
+import jsonschema from "jsonschema";
 
 class GameStore {
     static DIR_TABLE = 'gs_dir';
     static DATA_TABLE = 'gs_data';
     static CAT_TABLE = 'gs_categories';
+    static validator = new jsonschema.Validator();
 
-    constructor(dbFile) {
+    constructor(dbFile = CONST.DB.PRODUCTION) {
         this.dbFile = dbFile;
-        this.sqlOptions = { /* verbose : console.log */ };
+        this.sqlOptions = { verbose: console.log };
     }
 
     create() {
@@ -17,7 +19,7 @@ class GameStore {
             CREATE TABLE IF NOT EXISTS ${GameStore.DIR_TABLE} (
                 gameid INTEGER PRIMARY KEY AUTOINCREMENT,
                 gamename VARCHAR(32) NOT NULL,
-                username VARCHAR(64) REFERENCES ${Credentials.TABLE}(username),
+                username VARCHAR(32) REFERENCES ${Credentials.TABLE}(username),
                 UNIQUE(gamename, username)
             )`)
             .run();
@@ -47,38 +49,54 @@ class GameStore {
         return this;
     }
 
-    newGame({gamename, username}) {
+    static validate(obj, schema) {
+        return this.validator.validate(obj, schema);
+    }
+
+    newGame({ gamename, username }) {
+        if (this.getGame(arguments[0])) {
+            throw new Error(`A game with the name '${gamename}' already exists.`);
+        }
+
         const sql = `INSERT INTO ${GameStore.DIR_TABLE} (gamename, username) VALUES (?, ?)`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         return stmt.run(gamename, username).lastInsertRowid;
     }
 
-    deleteGame({gamename, username}) {
-        const sql = `DELETE FROM ${GameStore.DIR_TABLE} WHERE gamename = ? AND username = ?`;
-        const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
-        return stmt.run(gamename, username);
+    deleteGame({ gameid }) {
+        const sql1 = `DELETE FROM ${GameStore.DATA_TABLE} WHERE gameid = ?`;
+        const stmt1 = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql1);
+        stmt1.run(gameid);
+
+        const sql2 = `DELETE FROM ${GameStore.DIR_TABLE} WHERE gameid = ?`;
+        const stmt2 = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql2);
+        return stmt2.run(gameid);
     }
 
-    getGame({gameid}) {
-        const sql = `SELECT * FROM ${GameStore.DIR_TABLE} WHERE gameid = ?`;
+    getGame({ gameid, username, gamename }) {
+        let field = arguments[0].gameid ? "gameid" : "gamename";
+        let value = arguments[0][field];
+
+        const sql = `SELECT * FROM ${GameStore.DIR_TABLE} WHERE ${field} = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
-        return stmt.get(gameid);
+        
+        return stmt.get(value);
     }
 
-    listGames({username}) {
-        const sql = `SELECT gamename FROM ${GameStore.DIR_TABLE} WHERE username = ?`;
+    listGames({ username }) {
+        const sql = `SELECT gameid, gamename FROM ${GameStore.DIR_TABLE} WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         const rows = stmt.all(username);
 
         const games = [];
         for (const row of rows) {
-            games.push(row.gamename);
+            games.push(row);
         }
 
         return games;
     }
 
-    addQuestion({gameid, round, col, row, value, question, answer}) {
+    addQuestion({ gameid, round, col, row, value, question, answer }) {
         const sql = `INSERT INTO ${GameStore.DATA_TABLE} VALUES (?, ?, ?, ?, ?, ?, ?)`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         return stmt.run(
@@ -92,7 +110,7 @@ class GameStore {
         ).lastInsertRowid;
     }
 
-    getQuestion({gameid, round, col, row}) {
+    getQuestion({ gameid, round, col, row }) {
         const sql = `SELECT * FROM ${GameStore.DATA_TABLE}
             WHERE gameid = ?
             AND round = ?
@@ -102,7 +120,7 @@ class GameStore {
         return stmt.get(gameid, round, col, row);
     }
 
-    deleteQuestion({gameid, round, col, row}) {
+    deleteQuestion({ gameid, round, col, row }) {
         const sql = `DELETE FROM ${GameStore.DATA_TABLE}
             WHERE gameid = ?
             AND round = ?
@@ -113,7 +131,7 @@ class GameStore {
         return info;
     }
 
-    setCategory({gameid, round, col, description}) {
+    setCategory({ gameid, round, col, description }) {
         const sql = `INSERT INTO ${GameStore.CAT_TABLE} VALUES (?, ?, ?, ?)`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         return stmt.run(
@@ -131,7 +149,7 @@ class GameStore {
             AND col = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         const row = stmt.get(gameid, round, col);
-        return row.desc;        
+        return row.desc;
     }
 
     allCategories({ gameid, round }) {
@@ -141,25 +159,33 @@ class GameStore {
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         const rows = stmt.all(gameid, round);
 
-        const categories = {};        
+        const categories = {};
         for (const row of rows) {
             categories[row.col] = row.desc;
         }
-        return categories;               
+        return categories;
     }
 
-    getRound({ gameid, round }) {
-        console.log(this.allCategories({ gameid: gameid, round: round }));
-
+    getRound({ gameid, round, fields }) {
         const r = {
             categories: this.allCategories({ gameid: gameid, round: round }),
             values: {
-                1: {},
-                2: {},
-                3: {},
-                4: {},
-                5: {},
-            }            
+                1: {
+                    1: {}, 2: {}, 3: {}, 4: {}, 5: {}
+                },
+                2: {
+                    1: {}, 2: {}, 3: {}, 4: {}, 5: {}
+                },
+                3: {
+                    1: {}, 2: {}, 3: {}, 4: {}, 5: {}
+                },
+                4: {
+                    1: {}, 2: {}, 3: {}, 4: {}, 5: {}
+                },
+                5: {
+                    1: {}, 2: {}, 3: {}, 4: {}, 5: {}
+                }
+            }
         };
 
         const sql = `SELECT * FROM ${GameStore.DATA_TABLE}
@@ -169,10 +195,137 @@ class GameStore {
         const rows = stmt.all(gameid, round);
 
         for (const row of rows) {
-            r.values[row.row][row.col] = row.value;
+            for (const field of fields) {
+                r.values[row.row][row.col][field] = row[field];
+            }
         }
-        return r;              
+        return r;
     }
 }
+
+GameStore.validator.addSchema({
+    "id": "/newGame",
+    "type": "object",
+    "properties": {
+        "username": { "type": "string", minLength: 1, maxLength: 32 },
+        "gamename": { "type": "string", minLength: 1, maxLength: 32 },
+    },
+    "required": ["username", "gamename"]
+});
+
+GameStore.validator.addSchema({
+    "id": "/deleteGame",
+    "type": "object",
+    "properties": {
+        "username": { "type": "string", minLength: 1, maxLength: 32 },
+        "gamename": { "type": "string", minLength: 1, maxLength: 32 },
+    },
+    "required": ["gameid"]
+});
+
+GameStore.validator.addSchema({
+    "id": "/getGame",
+    "type": "object",
+    "properties": {
+        "gameid": { "type": "number" },
+        "gamename": { "type": "string" },
+        "username": { "type": "string" }
+    },
+    oneOf: [
+        { "required": ["gameid"] },
+        { "required": ["gamename", "username"] }
+    ]
+});
+
+GameStore.validator.addSchema({
+    "id": "/listGames",
+    "type": "object",
+    "properties": {
+        "username": { "type": "string", minLength: 1, maxLength: 32 }
+    },
+    "required": ["username"]
+});
+
+GameStore.validator.addSchema({
+    "id": "/addQuestion",
+    "type": "object",
+    "properties": {
+        "gameid": { "type": "number" },
+        "round": { "type": "number" },
+        "col": { "type": "number" },
+        "row": { "type": "number" },
+        "value": { "type": "number" },
+        "question": { "type": "string", minLength: 1, maxLength: 256 },
+        "answer": { "type": "string", minLength: 1, maxLength: 256 }
+    },
+    "required": ["gameid", "round", "col", "row", "value", "question", "answer"]
+});
+
+GameStore.validator.addSchema({
+    "id": "/getQuestion",
+    "type": "object",
+    "properties": {
+        "gameid": { "type": "number" },
+        "round": { "type": "number" },
+        "col": { "type": "number" },
+        "row": { "type": "number" },
+    },
+    "required": ["gameid", "round", "col", "row"]
+});
+
+GameStore.validator.addSchema({
+    "id": "/deleteQuestion",
+    "type": "object",
+    "properties": {
+        "gameid": { "type": "number" },
+        "round": { "type": "number" },
+        "col": { "type": "number" },
+        "row": { "type": "number" },
+    },
+    "required": ["gameid", "round", "col", "row"]
+});
+
+GameStore.validator.addSchema({
+    "id": "/setCategory",
+    "type": "object",
+    "properties": {
+        "gameid": { "type": "number" },
+        "round": { "type": "number" },
+        "col": { "type": "number" },
+        "description": { "type": "string", minLength: 1, maxLength: 64 },
+    },
+    "required": ["gameid", "round", "col", "description"]
+});
+
+GameStore.validator.addSchema({
+    "id": "/getCategory",
+    "type": "object",
+    "properties": {
+        "gameid": { "type": "number" },
+        "round": { "type": "number" },
+        "col": { "type": "number" }
+    },
+    "required": ["gameid", "round", "col"]
+});
+
+GameStore.validator.addSchema({
+    "id": "/allCategories",
+    "type": "object",
+    "properties": {
+        "gameid": { "type": "number" },
+        "round": { "type": "number" }
+    },
+    "required": ["gameid", "round"]
+});
+
+GameStore.validator.addSchema({
+    "id": "/getRound",
+    "type": "object",
+    "properties": {
+        "gameid": { "type": "number" },
+        "round": { "type": "number" }
+    },
+    "required": ["gameid", "round"]
+});
 
 export default GameStore;

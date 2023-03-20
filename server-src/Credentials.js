@@ -14,7 +14,7 @@ class Credentials {
     create() {
         new sqlite3(this.dbFile, this.sqlOptions).prepare(`
             CREATE TABLE IF NOT EXISTS ${Credentials.TABLE} ( \
-                username VARCHAR(64) primary key, \
+                username VARCHAR(32) primary key, \
                 email VARCHAR(64), \
                 hash VARCHAR(64), 
                 confirmed INTEGER DEFAULT 0
@@ -104,7 +104,6 @@ class Credentials {
      * No return value.
      */
     updateUser(username, email) {
-        console.log(`update user ${username} ${email}`);
         if (!this.hasUser(username)) throw new Error(`user not added: '${username}'`);
         const sql = `UPDATE ${Credentials.TABLE} SET email = ? WHERE username = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);

@@ -22,7 +22,7 @@ function handleResponse(res, options = {}) {
         }
     }, null, 2);
 
-    if (options.log === undefined || options.log === true) logger.log(msg);
+    if (options.log === true) logger.log(msg);
     res.status(options.code || 200);
     res.write(msg);
     res.end();

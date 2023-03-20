@@ -29,7 +29,7 @@ class EmailFactory {
             home: CONST.URL.HOME,
             link: confirmationURL
         }
-        console.log(literals);
+
         const email = new Email();
         email.msg.to = destination;
         email.msg.html = loadTemplate(CONST.TEMPLATES.CONFIRMATION + ".html", literals);

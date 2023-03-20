@@ -44,7 +44,8 @@ router.use(`/credentials/:action`, async (req, res, next) => {
                 break;
         }
     } catch (error) {
-        handleError(res, error);
+        logger.error(error);
+        handleError(res, { cause: error });
     } finally {
         res.end();
     }
@@ -52,15 +53,9 @@ router.use(`/credentials/:action`, async (req, res, next) => {
 
 
 async function status(credentials, confirmationHashes, req, res, next) {
-    if (!req.session[CONST.SESSION.LOGGED_IN]) {
-        req.session[CONST.SESSION.LOGGED_IN] = false;
-    }
-
-    const status = req.session[CONST.SESSION.LOGGED_IN];
-
     handleResponse(res, {
         data: {
-            logged_in: status
+            logged_in: isLoggedIn(req)
         }
     });
 }
@@ -94,7 +89,8 @@ async function login(credentials, confirmationHashes, req, res, next) {
     const username = req.body.username;
     const validate = await credentials.validateHash(username, req.body.password);
     if (validate) {
-        req.session[CONST.SESSION.LOGGED_IN] = true;
+        setLoggedIn(req, true);
+        setUserName(req, username);
         logger.log(`user logged in: '${username}'`);
         handleResponse(res);
     } else {
@@ -131,8 +127,33 @@ async function updateEmail(credentials, confirmationHashes, req, res, next) {
 }
 
 async function logout(credentials, confirmationHashes, req, res, next) {
-    req.session[CONST.SESSION.LOGGED_IN] = false;
+    setLoggedIn(false);
     handleResponse(res);
 }
 
-export { router as default, register, createConfirmationURL, login, updateEmail, logout };
+function isLoggedIn(req) {
+    return req.session[CONST.SESSION.LOGGED_IN];
+}
+
+function setLoggedIn(req, value) {
+    req.session[CONST.SESSION.LOGGED_IN] = value;
+}
+
+function setUserName(req, value) {
+    req.session[CONST.SESSION.USERNAME] = value;
+}
+
+function getUserName(req) {
+    return req.session[CONST.SESSION.USERNAME];
+}
+
+export {
+    router as default,
+    register,
+    createConfirmationURL,
+    login,
+    updateEmail,
+    logout,
+    isLoggedIn,
+    getUserName
+};

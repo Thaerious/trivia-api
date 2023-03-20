@@ -40,7 +40,8 @@ export default {
         DISCOVERY_URL: 'https://accounts.google.com/.well-known/openid-configuration'
     },
     SESSION: {
-        LOGGED_IN: 'login_status'
+        LOGGED_IN: 'login_status',
+        USERNAME: 'username'
     }
 };
 

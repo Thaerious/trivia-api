@@ -5,7 +5,6 @@ const router = express.Router();
 
 router.use(`*`, (req, res, next) => {
     const a = [
-        new Date().toLocaleTimeString(),
         req.ip,
         req.method,
         req.originalUrl,

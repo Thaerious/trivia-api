@@ -9,7 +9,7 @@ dotenv.config();
 const router = Express.Router();
 const ONE_DAY = 1000 * 60 * 60 * 24;
 const MINUTES_15 = 1000 * 60 * 15;
-const db = new sqlite3("db/sessions.db", { verbose: console.log });
+const db = new sqlite3("db/sessions.db", { /* verbose: console.log */ });
 
 const SqliteStore = store(sessions);
 
