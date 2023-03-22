@@ -22,8 +22,6 @@ function handleResponse(res, options = {}) {
         
     }, null, 2);
 
-    console.log(msg);
-
     if (options.log === true) logger.log(msg);
     res.status(options.code || 200);
     res.write(msg);

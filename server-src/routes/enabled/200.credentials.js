@@ -127,7 +127,7 @@ async function updateEmail(credentials, confirmationHashes, req, res, next) {
 }
 
 async function logout(credentials, confirmationHashes, req, res, next) {
-    setLoggedIn(false);
+    setLoggedIn(req, false);
     handleResponse(res);
 }
 

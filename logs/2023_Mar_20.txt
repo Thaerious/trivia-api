@@ -397,3 +397,134 @@
 }
 11:16:21 AM 127.0.0.1 POST /credentials/status application/json
 11:16:21 AM 127.0.0.1 POST /gamestore/getRound application/json
+6:55:09 PM 127.0.0.1 POST /credentials/status application/json
+6:55:24 PM 127.0.0.1 POST /credentials/login application/json
+6:55:24 PM user logged in: 'ed'
+6:57:20 PM 127.0.0.1 POST /credentials/status application/json
+6:57:20 PM 127.0.0.1 POST /credentials/status application/json
+6:57:22 PM 127.0.0.1 POST /credentials/logout application/json
+6:57:22 PM ERROR Cannot set properties of undefined (setting 'login_status') 
+TypeError: Cannot set properties of undefined (setting 'login_status')
+    at setLoggedIn (file:///home/ed/trunk/trivia/trivia-api/server-src/routes/enabled/200.credentials.js:139:42)
+    at logout (file:///home/ed/trunk/trivia/trivia-api/server-src/routes/enabled/200.credentials.js:130:5)
+    at file:///home/ed/trunk/trivia/trivia-api/server-src/routes/enabled/200.credentials.js:38:23
+    at Layer.handle [as handle_request] (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:328:13)
+    at /home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:286:9
+    at param (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:280:10)6:57:22 PM {
+  "status": "exception",
+  "url": "/credentials/logout",
+  "cause": {},
+  "data": {}
+}
+6:57:25 PM 127.0.0.1 POST /credentials/logout application/json
+6:57:25 PM ERROR Cannot set properties of undefined (setting 'login_status') 
+TypeError: Cannot set properties of undefined (setting 'login_status')
+    at setLoggedIn (file:///home/ed/trunk/trivia/trivia-api/server-src/routes/enabled/200.credentials.js:139:42)
+    at logout (file:///home/ed/trunk/trivia/trivia-api/server-src/routes/enabled/200.credentials.js:130:5)
+    at file:///home/ed/trunk/trivia/trivia-api/server-src/routes/enabled/200.credentials.js:38:23
+    at Layer.handle [as handle_request] (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:328:13)
+    at /home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:286:9
+    at param (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:280:10)6:57:25 PM {
+  "status": "exception",
+  "url": "/credentials/logout",
+  "cause": {},
+  "data": {}
+}
+6:58:55 PM 127.0.0.1 POST /credentials/status application/json
+6:58:56 PM 127.0.0.1 POST /credentials/logout application/json
+6:58:56 PM ERROR Cannot set properties of undefined (setting 'login_status') 
+TypeError: Cannot set properties of undefined (setting 'login_status')
+    at setLoggedIn (file:///home/ed/trunk/trivia/trivia-api/server-src/routes/enabled/200.credentials.js:139:42)
+    at logout (file:///home/ed/trunk/trivia/trivia-api/server-src/routes/enabled/200.credentials.js:130:5)
+    at file:///home/ed/trunk/trivia/trivia-api/server-src/routes/enabled/200.credentials.js:38:23
+    at Layer.handle [as handle_request] (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:328:13)
+    at /home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:286:9
+    at param (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:280:10)6:58:56 PM {
+  "status": "exception",
+  "url": "/credentials/logout",
+  "cause": {},
+  "data": {}
+}
+6:59:36 PM 127.0.0.1 POST /credentials/status application/json
+6:59:43 PM 127.0.0.1 POST /credentials/logout application/json
+6:59:43 PM ERROR Cannot set properties of undefined (setting 'login_status') 
+TypeError: Cannot set properties of undefined (setting 'login_status')
+    at setLoggedIn (file:///home/ed/trunk/trivia/trivia-api/server-src/routes/enabled/200.credentials.js:139:42)
+    at logout (file:///home/ed/trunk/trivia/trivia-api/server-src/routes/enabled/200.credentials.js:130:5)
+    at file:///home/ed/trunk/trivia/trivia-api/server-src/routes/enabled/200.credentials.js:38:23
+    at Layer.handle [as handle_request] (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:328:13)
+    at /home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:286:9
+    at param (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/home/ed/trunk/trivia/trivia-api/node_modules/express/lib/router/index.js:280:10)6:59:43 PM {
+  "status": "exception",
+  "url": "/credentials/logout",
+  "cause": {},
+  "data": {}
+}
+7:00:32 PM 127.0.0.1 POST /credentials/logout application/json
+7:00:32 PM 127.0.0.1 POST /credentials/status application/json
+7:00:42 PM 127.0.0.1 POST /credentials/login application/json
+7:00:42 PM user logged in: 'ed'
+7:02:43 PM 127.0.0.1 POST /credentials/login application/json
+7:02:43 PM user logged in: 'ed'
+7:04:02 PM 127.0.0.1 POST /credentials/status application/json
+7:04:02 PM 127.0.0.1 POST /credentials/status application/json
+7:04:04 PM 127.0.0.1 POST /credentials/logout application/json
+7:04:04 PM 127.0.0.1 POST /credentials/status application/json
+7:04:08 PM 127.0.0.1 POST /credentials/login application/json
+7:04:08 PM user logged in: 'ed'
+7:05:56 PM 127.0.0.1 POST /credentials/status application/json
+7:05:56 PM 127.0.0.1 POST /credentials/status application/json
+7:05:57 PM 127.0.0.1 POST /credentials/logout application/json
+7:05:57 PM 127.0.0.1 POST /credentials/status application/json
+7:06:04 PM 127.0.0.1 POST /credentials/login application/json
+7:06:04 PM user logged in: 'ed'
+7:06:24 PM 127.0.0.1 POST /credentials/status application/json
+7:06:24 PM 127.0.0.1 POST /credentials/status application/json
+7:06:25 PM 127.0.0.1 POST /credentials/logout application/json
+7:06:25 PM 127.0.0.1 POST /credentials/status application/json
+7:06:30 PM 127.0.0.1 POST /credentials/login application/json
+7:06:30 PM user logged in: 'ed'
+7:11:01 PM 127.0.0.1 POST /credentials/status application/json
+7:11:01 PM 127.0.0.1 POST /credentials/status application/json
+7:11:02 PM 127.0.0.1 POST /credentials/logout application/json
+7:11:02 PM 127.0.0.1 POST /credentials/status application/json
+7:11:07 PM 127.0.0.1 POST /credentials/login application/json
+7:11:07 PM user logged in: 'ed'
+7:12:08 PM 127.0.0.1 POST /credentials/status application/json
+7:12:08 PM 127.0.0.1 POST /credentials/status application/json
+7:12:10 PM 127.0.0.1 POST /credentials/logout application/json
+7:12:10 PM 127.0.0.1 POST /credentials/status application/json
+7:12:13 PM 127.0.0.1 POST /credentials/login application/json
+7:12:13 PM invalid password for user: 'ed'
+7:12:45 PM 127.0.0.1 POST /credentials/status application/json
+7:12:47 PM 127.0.0.1 POST /credentials/login application/json
+7:12:47 PM unknown user: ''
+7:15:27 PM 127.0.0.1 POST /credentials/status application/json
+7:15:50 PM 127.0.0.1 POST /credentials/status application/json
+7:16:07 PM 127.0.0.1 POST /credentials/status application/json
+7:16:23 PM 127.0.0.1 POST /credentials/status application/json
+7:17:06 PM 127.0.0.1 POST /credentials/status application/json
+7:17:11 PM 127.0.0.1 POST /credentials/status application/json
+7:21:33 PM 127.0.0.1 POST /credentials/status application/json
+7:21:56 PM 127.0.0.1 POST /credentials/status application/json
+7:22:19 PM 127.0.0.1 POST /credentials/status application/json
+7:22:37 PM 127.0.0.1 POST /credentials/login application/json
+7:22:37 PM user logged in: 'ed'
+8:37:02 PM 127.0.0.1 POST /credentials/status application/json
+8:37:02 PM 127.0.0.1 POST /credentials/status application/json
