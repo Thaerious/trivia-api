@@ -18,6 +18,7 @@ router.use(`/gamestore/:action`, async (req, res, next) => {
         /* verify the logged in user owns the gameid */
         if (req.body.gameid) {
             const gameinfo = gameStore.getGame({ gameid: req.body.gameid });
+            console.log(gameinfo);
             if (gameinfo.username !== req.body.username) {
                 return handleError(res, {
                     message: `game ${req.body.gameid} does not belong to user ${req.body.username}`

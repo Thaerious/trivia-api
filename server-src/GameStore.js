@@ -64,13 +64,18 @@ class GameStore {
     }
 
     deleteGame({ gameid }) {
-        const sql1 = `DELETE FROM ${GameStore.DATA_TABLE} WHERE gameid = ?`;
-        const stmt1 = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql1);
-        stmt1.run(gameid);
+        new sqlite3(this.dbFile, this.sqlOptions)
+            .prepare(`DELETE FROM ${GameStore.CAT_TABLE} WHERE gameid = ?`)
+            .run(gameid);
 
-        const sql2 = `DELETE FROM ${GameStore.DIR_TABLE} WHERE gameid = ?`;
-        const stmt2 = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql2);
-        return stmt2.run(gameid);
+
+        new sqlite3(this.dbFile, this.sqlOptions)
+            .prepare(`DELETE FROM ${GameStore.DATA_TABLE} WHERE gameid = ?`)
+            .run(gameid);
+
+        new sqlite3(this.dbFile, this.sqlOptions)
+            .prepare(`DELETE FROM ${GameStore.DIR_TABLE} WHERE gameid = ?`)
+            .run(gameid);        
     }
 
     getGame({ gameid, username, gamename }) {
@@ -79,7 +84,7 @@ class GameStore {
 
         const sql = `SELECT * FROM ${GameStore.DIR_TABLE} WHERE ${field} = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
-        
+
         return stmt.get(value);
     }
 
