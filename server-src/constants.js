@@ -23,7 +23,7 @@ export default {
         CONFIRMATION: Path.join("emails", "confirmation")
     },
     DB: {
-        PRODUCTION: "db/credentials.db",
+        PRODUCTION: "db/production.db",
         SALT_ITERATIONS: 8,
         TABLE: {
             EMAIL_CONF: "email_confirmation"

@@ -29,7 +29,8 @@ class GameStore {
                 gameid INTEGER REFERENCES ${GameStore.DIR_TABLE}(gameid),
                 round INTEGER NOT NULL,
                 col INTEGER NOT NULL,
-                desc VARCHAR(64) NOT NULL
+                desc VARCHAR(64) NOT NULL,
+                UNIQUE(gameid, round, col)
             )`)
             .run();
 
@@ -39,9 +40,9 @@ class GameStore {
                 round INTEGER NOT NULL,
                 col INTEGER NOT NULL,
                 row INTEGER NOT NULL,
-                value INTEGER NOT NULL,
-                question VARCHAR(256) NOT NULL,
-                answer VARCHAR(256) NOT NULL,
+                value INTEGER,
+                question VARCHAR(256),
+                answer VARCHAR(256),
                 PRIMARY KEY(gameid, round, col, row)
             )`)
             .run();
@@ -68,14 +69,13 @@ class GameStore {
             .prepare(`DELETE FROM ${GameStore.CAT_TABLE} WHERE gameid = ?`)
             .run(gameid);
 
-
         new sqlite3(this.dbFile, this.sqlOptions)
             .prepare(`DELETE FROM ${GameStore.DATA_TABLE} WHERE gameid = ?`)
             .run(gameid);
 
         new sqlite3(this.dbFile, this.sqlOptions)
             .prepare(`DELETE FROM ${GameStore.DIR_TABLE} WHERE gameid = ?`)
-            .run(gameid);        
+            .run(gameid);
     }
 
     getGame({ gameid, username, gamename }) {
@@ -102,7 +102,7 @@ class GameStore {
     }
 
     addQuestion({ gameid, round, col, row, value, question, answer }) {
-        const sql = `INSERT INTO ${GameStore.DATA_TABLE} VALUES (?, ?, ?, ?, ?, ?, ?)`;
+        const sql = `INSERT OR REPLACE INTO ${GameStore.DATA_TABLE} VALUES (?, ?, ?, ?, ?, ?, ?)`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         return stmt.run(
             gameid,
@@ -137,7 +137,7 @@ class GameStore {
     }
 
     setCategory({ gameid, round, col, description }) {
-        const sql = `INSERT INTO ${GameStore.CAT_TABLE} VALUES (?, ?, ?, ?)`;
+        const sql = `INSERT OR REPLACE INTO ${GameStore.CAT_TABLE} VALUES (?, ?, ?, ?)`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         return stmt.run(
             gameid,
@@ -171,7 +171,7 @@ class GameStore {
         return categories;
     }
 
-    getRound({ gameid, round, fields }) {
+    getRound({ gameid, round }) {
         const r = {
             categories: this.allCategories({ gameid: gameid, round: round }),
             values: {
@@ -193,16 +193,14 @@ class GameStore {
             }
         };
 
-        const sql = `SELECT * FROM ${GameStore.DATA_TABLE}
+        const sql = `SELECT row, col, value FROM ${GameStore.DATA_TABLE}
             WHERE gameid = ?
             AND round = ?`;
         const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
         const rows = stmt.all(gameid, round);
 
         for (const row of rows) {
-            for (const field of fields) {
-                r.values[row.row][row.col][field] = row[field];
-            }
+            r.values[row.col][row.row].value = row.value;
         }
         return r;
     }
@@ -259,11 +257,16 @@ GameStore.validator.addSchema({
         "round": { "type": "number" },
         "col": { "type": "number" },
         "row": { "type": "number" },
-        "value": { "type": "number" },
-        "question": { "type": "string", minLength: 1, maxLength: 256 },
-        "answer": { "type": "string", minLength: 1, maxLength: 256 }
+        "value": {
+            "anyOf": [
+                { "type": "number" },
+                { "type": "null" }
+            ]
     },
-    "required": ["gameid", "round", "col", "row", "value", "question", "answer"]
+    "question": { "type": "string", minLength: 0, maxLength: 256 },
+    "answer": { "type": "string", minLength: 0, maxLength: 256 }
+},
+    "required": ["gameid", "round", "col", "row"]
 });
 
 GameStore.validator.addSchema({
@@ -297,7 +300,7 @@ GameStore.validator.addSchema({
         "gameid": { "type": "number" },
         "round": { "type": "number" },
         "col": { "type": "number" },
-        "description": { "type": "string", minLength: 1, maxLength: 64 },
+        "description": { "type": "string", minLength: 0, maxLength: 64 },
     },
     "required": ["gameid", "round", "col", "description"]
 });

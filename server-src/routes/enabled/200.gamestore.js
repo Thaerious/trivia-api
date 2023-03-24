@@ -26,6 +26,7 @@ router.use(`/gamestore/:action`, async (req, res, next) => {
             }
         }
  
+        console.log(req.body);
         const validate = GameStore.validate(req.body, {
             '$ref': req.params.action
         });
