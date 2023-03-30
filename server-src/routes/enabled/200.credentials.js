@@ -54,6 +54,7 @@ router.use(`/credentials/:action`, async (req, res, next) => {
 
 async function status(credentials, confirmationHashes, req, res, next) {
     handleResponse(res, {
+        log: true,
         data: {
             logged_in: isLoggedIn(req)
         }

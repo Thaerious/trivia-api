@@ -1,0 +1,22 @@
+{
+    "instance_id" : {
+        "gameid" : "",
+        "host" : "",
+        "current_player": 0,
+        "current_round": 0,
+        "state": 0,
+        "players" : [
+            {
+                "player" : "",
+                "score" : 0,
+                "order" : 0
+            }
+        ],
+        "spent" : [
+            {
+                "row": 0,
+                "col": 0
+            }
+        ]
+    }
+}

@@ -761,3 +761,475 @@ SqliteError: UNIQUE constraint failed: gs_categories.gameid, gs_categories.round
 12:52:28 PM 172.27.192.1 GET / 
 12:54:30 PM 127.0.0.1 POST /gamestore/listGames application/json
 12:54:30 PM 127.0.0.1 POST /credentials/status application/json
+1:13:36 PM 127.0.0.1 POST /credentials/status application/json
+1:13:36 PM 127.0.0.1 POST /credentials/status application/json
+1:13:36 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:14:22 PM 127.0.0.1 POST /credentials/status application/json
+1:14:22 PM 127.0.0.1 POST /credentials/status application/json
+1:14:22 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:14:24 PM 127.0.0.1 GET / 
+1:14:24 PM 127.0.0.1 GET /favicon.ico 
+1:15:13 PM 192.168.1.217 GET / 
+1:15:13 PM 192.168.1.217 GET /favicon.ico 
+1:15:52 PM 192.168.1.14 GET / 
+1:15:52 PM 192.168.1.14 GET /favicon.ico 
+1:15:54 PM 192.168.1.14 GET / 
+1:16:25 PM 192.168.1.14 GET / 
+1:18:19 PM 127.0.0.1 POST /credentials/status application/json
+1:18:20 PM 127.0.0.1 POST /credentials/status application/json
+1:18:20 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:18:24 PM 127.0.0.1 GET / 
+1:21:24 PM 192.168.1.14 GET / 
+1:23:05 PM 127.0.0.1 GET / 
+1:26:53 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:26:53 PM 127.0.0.1 POST /credentials/status application/json
+1:27:48 PM 127.0.0.1 POST /credentials/status application/json
+1:27:48 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:27:49 PM 127.0.0.1 POST /credentials/status application/json
+1:27:49 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:27:49 PM 127.0.0.1 POST /credentials/status application/json
+1:27:53 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:27:59 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:28:00 PM 127.0.0.1 POST /credentials/status application/json
+1:28:00 PM 127.0.0.1 POST /gamestore/getRound application/json
+1:28:03 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:28:03 PM 127.0.0.1 POST /credentials/status application/json
+1:28:22 PM 127.0.0.1 GET / 
+1:28:53 PM 192.168.1.14 GET / 
+1:29:11 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:29:11 PM 127.0.0.1 POST /credentials/status application/json
+1:33:37 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:33:37 PM 127.0.0.1 POST /credentials/status application/json
+1:33:43 PM 192.168.1.14 GET / 
+1:35:10 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:35:10 PM 127.0.0.1 POST /credentials/status application/json
+1:36:50 PM 127.0.0.1 POST /credentials/status application/json
+1:36:50 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:36:50 PM 127.0.0.1 POST /credentials/status application/json
+1:36:52 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:36:52 PM 127.0.0.1 POST /credentials/status application/json
+1:36:53 PM 127.0.0.1 POST /credentials/status application/json
+1:36:53 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:36:53 PM 127.0.0.1 POST /credentials/status application/json
+1:46:13 PM 127.0.0.1 POST /credentials/status application/json
+1:46:24 PM 127.0.0.1 POST /credentials/login application/json
+1:46:24 PM user logged in: 'ed'
+1:46:24 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:46:24 PM {
+  "status": "exception",
+  "url": "/gamestore/listGames",
+  "message": "not logged in",
+  "data": {}
+}
+1:46:24 PM 127.0.0.1 POST /credentials/status application/json
+1:46:24 PM 127.0.0.1 POST /credentials/status application/json
+1:46:40 PM 127.0.0.1 POST /credentials/login application/json
+1:46:40 PM user logged in: 'ed'
+1:46:40 PM 127.0.0.1 POST /gamestore/listGames application/json
+1:46:40 PM {
+  "status": "exception",
+  "url": "/gamestore/listGames",
+  "message": "not logged in",
+  "data": {}
+}
+1:46:40 PM 127.0.0.1 POST /credentials/status application/json
+1:46:40 PM 127.0.0.1 POST /credentials/status application/json
+2:47:40 PM 127.0.0.1 POST /credentials/status application/json
+2:47:45 PM 192.168.1.217 GET / 
+2:48:14 PM 127.0.0.1 POST /credentials/login application/json
+2:48:14 PM user logged in: 'ed'
+2:48:14 PM 127.0.0.1 POST /gamestore/listGames application/json
+2:48:14 PM {
+  "status": "exception",
+  "url": "/gamestore/listGames",
+  "message": "not logged in",
+  "data": {}
+}
+2:48:14 PM 127.0.0.1 POST /credentials/status application/json
+2:48:15 PM 127.0.0.1 POST /credentials/status application/json
+2:56:00 PM 127.0.0.1 POST /credentials/login application/json
+2:56:00 PM user logged in: 'ed'
+2:56:00 PM 127.0.0.1 POST /gamestore/listGames application/json
+2:56:00 PM 127.0.0.1 POST /credentials/status application/json
+2:56:00 PM {
+  "status": "exception",
+  "url": "/gamestore/listGames",
+  "message": "not logged in",
+  "data": {}
+}
+2:56:01 PM 127.0.0.1 POST /credentials/status application/json
+2:56:57 PM 127.0.0.1 POST /credentials/login application/json
+2:56:57 PM user logged in: 'ed'
+2:56:57 PM 127.0.0.1 POST /gamestore/listGames application/json
+2:56:57 PM {
+  "status": "exception",
+  "url": "/gamestore/listGames",
+  "message": "not logged in",
+  "data": {}
+}
+2:56:57 PM 127.0.0.1 POST /credentials/status application/json
+2:56:57 PM 127.0.0.1 POST /credentials/status application/json
+3:06:22 PM 127.0.0.1 POST /credentials/status application/json
+3:06:31 PM 127.0.0.1 POST /credentials/login application/json
+3:06:31 PM user logged in: 'ed'
+3:06:31 PM 127.0.0.1 POST /gamestore/listGames application/json
+3:06:31 PM {
+  "status": "exception",
+  "url": "/gamestore/listGames",
+  "message": "not logged in",
+  "data": {}
+}
+3:06:31 PM 127.0.0.1 POST /credentials/status application/json
+3:06:31 PM 127.0.0.1 POST /credentials/status application/json
+3:07:40 PM 127.0.0.1 POST /credentials/status application/json
+3:08:00 PM 127.0.0.1 POST /credentials/status application/json
+3:08:25 PM 127.0.0.1 POST /credentials/status application/json
+3:09:43 PM 127.0.0.1 POST /credentials/status application/json
+3:10:02 PM 127.0.0.1 POST /credentials/status application/json
+3:10:06 PM 127.0.0.1 POST /credentials/status application/json
+3:11:35 PM 127.0.0.1 POST /credentials/status application/json
+3:11:35 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:12:24 PM 127.0.0.1 POST /credentials/status application/json
+3:12:24 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:12:34 PM 127.0.0.1 POST /credentials/login application/json
+3:12:34 PM user logged in: 'ed'
+3:12:34 PM 127.0.0.1 POST /gamestore/listGames application/json
+3:12:34 PM {
+  "status": "exception",
+  "url": "/gamestore/listGames",
+  "message": "not logged in",
+  "data": {}
+}
+3:12:34 PM 127.0.0.1 POST /credentials/status application/json
+3:12:34 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:12:34 PM 127.0.0.1 POST /credentials/status application/json
+3:12:34 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:17:13 PM 127.0.0.1 POST /credentials/status application/json
+3:17:13 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:18:11 PM 127.0.0.1 POST /credentials/status application/json
+3:18:11 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:18:21 PM 127.0.0.1 POST /credentials/status application/json
+3:18:21 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:18:58 PM 127.0.0.1 POST /credentials/status application/json
+3:18:58 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:19:12 PM 127.0.0.1 POST /credentials/status application/json
+3:19:12 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:19:18 PM 127.0.0.1 POST /credentials/login application/json
+3:19:18 PM user logged in: 'ed'
+3:19:18 PM 127.0.0.1 POST /gamestore/listGames application/json
+3:19:18 PM {
+  "status": "exception",
+  "url": "/gamestore/listGames",
+  "message": "not logged in",
+  "data": {}
+}
+3:19:18 PM 127.0.0.1 POST /credentials/status application/json
+3:19:18 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:19:18 PM 127.0.0.1 POST /credentials/status application/json
+3:19:18 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:19:55 PM 127.0.0.1 POST /credentials/status application/json
+3:19:55 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:22:41 PM 127.0.0.1 POST /credentials/status application/json
+3:22:41 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:23:15 PM 127.0.0.1 POST /credentials/status application/json
+3:23:15 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:23:17 PM 127.0.0.1 POST /credentials/status application/json
+3:23:17 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:23:21 PM 127.0.0.1 POST /credentials/status application/json
+3:23:21 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:25:27 PM 127.0.0.1 POST /credentials/status application/json
+3:25:27 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:27:42 PM 127.0.0.1 POST /credentials/status application/json
+3:27:42 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:27:59 PM 127.0.0.1 POST /credentials/status application/json
+3:27:59 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:29:17 PM 192.168.1.217 POST /credentials/status application/json
+3:29:17 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:29:32 PM 192.168.1.217 POST /credentials/status application/json
+3:29:32 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:29:33 PM 192.168.1.217 POST /credentials/status application/json
+3:29:33 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:29:34 PM 192.168.1.217 POST /credentials/status application/json
+3:29:34 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:29:39 PM 192.168.1.217 POST /credentials/login application/json
+3:29:39 PM user logged in: 'ed'
+3:29:40 PM 192.168.1.217 POST /gamestore/listGames application/json
+3:29:41 PM 192.168.1.217 POST /credentials/status application/json
+3:29:41 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+3:29:42 PM 192.168.1.217 POST /gamestore/listGames application/json
+3:29:45 PM 192.168.1.217 POST /credentials/status application/json
+3:29:45 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+3:29:46 PM 192.168.1.217 POST /gamestore/getRound application/json
+3:30:23 PM 192.168.1.14 POST /credentials/status application/json
+3:30:23 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+3:30:37 PM 192.168.1.14 POST /credentials/login application/json
+3:30:37 PM unknown user: 'Ed'
+3:30:45 PM 192.168.1.14 POST /credentials/login application/json
+3:30:45 PM user logged in: 'ed'
+3:30:45 PM 192.168.1.14 POST /gamestore/listGames application/json
+3:30:45 PM 192.168.1.14 POST /credentials/status application/json
+3:30:45 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+3:30:47 PM 192.168.1.14 POST /gamestore/listGames application/json
+3:30:49 PM 192.168.1.14 POST /credentials/status application/json
+3:30:49 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+3:30:49 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:39:23 PM 192.168.1.14 POST /credentials/status application/json
+3:39:23 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+3:49:34 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:34 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:35 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:37 PM 192.168.1.14 POST /credentials/status application/json
+3:49:37 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+3:49:37 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:40 PM 192.168.1.14 POST /credentials/status application/json
+3:49:40 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+3:49:40 PM 192.168.1.14 POST /gamestore/listGames application/json
+3:49:42 PM 192.168.1.14 POST /gamestore/listGames application/json
+3:49:44 PM 192.168.1.14 POST /credentials/status application/json
+3:49:44 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+3:49:44 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:46 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:49 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:50 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:50 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:50 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:51 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:51 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:51 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:51 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:51 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:53 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:54 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:55 PM 192.168.1.14 POST /gamestore/getQuestion application/json
+3:49:57 PM 192.168.1.14 POST /gamestore/addQuestion application/json
+3:49:58 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:49:58 PM 192.168.1.14 POST /gamestore/getQuestion application/json
+3:50:00 PM 192.168.1.14 POST /gamestore/addQuestion application/json
+3:50:00 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:50:03 PM 192.168.1.14 POST /gamestore/getQuestion application/json
+3:50:18 PM 192.168.1.217 POST /credentials/status application/json
+3:50:18 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+3:50:19 PM 192.168.1.217 POST /gamestore/getRound application/json
+3:50:20 PM 192.168.1.14 POST /gamestore/getQuestion application/json
+3:50:20 PM ERROR Cannot read properties of undefined (reading 'username') 
+TypeError: Cannot read properties of undefined (reading 'username')
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.gamestore.js:22:26
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)3:50:20 PM {
+  "status": "exception",
+  "url": "/gamestore/getQuestion",
+  "message": "Cannot read properties of undefined (reading 'username')",
+  "data": {}
+}
+3:50:22 PM 192.168.1.14 POST /gamestore/addQuestion application/json
+3:50:22 PM ERROR Cannot read properties of undefined (reading 'username') 
+TypeError: Cannot read properties of undefined (reading 'username')
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.gamestore.js:22:26
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)3:50:22 PM {
+  "status": "exception",
+  "url": "/gamestore/addQuestion",
+  "message": "Cannot read properties of undefined (reading 'username')",
+  "data": {}
+}
+3:50:28 PM 192.168.1.14 POST /credentials/status application/json
+3:50:28 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+3:50:28 PM 192.168.1.14 POST /gamestore/getRound application/json
+3:57:06 PM 192.168.1.14 POST /credentials/status application/json
+3:57:06 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+3:57:06 PM 192.168.1.14 POST /gamestore/getRound application/json
+5:33:48 PM 192.168.1.14 GET /favicon.ico 
+5:33:51 PM 192.168.1.14 POST /credentials/status application/json
+5:33:51 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+5:33:51 PM 192.168.1.217 POST /credentials/status application/json
+5:33:51 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+5:33:51 PM 192.168.1.217 POST /gamestore/getRound application/json
+5:33:51 PM 192.168.1.14 POST /gamestore/getRound application/json

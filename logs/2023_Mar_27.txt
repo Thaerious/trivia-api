@@ -1,0 +1,18 @@
+7:57:39 PM 192.168.1.217 POST /credentials/status application/json
+7:57:39 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+7:57:54 PM 192.168.1.217 POST /credentials/login application/json
+7:57:54 PM user logged in: 'ed'
+7:57:54 PM 192.168.1.217 POST /gamestore/listGames application/json
+7:57:55 PM 192.168.1.217 POST /credentials/status application/json
+7:57:55 PM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+7:57:59 PM 192.168.1.217 POST /gamestore/listGames application/json

@@ -26,7 +26,8 @@
     "google-auth-library": "^8.7.0",
     "jsonschema": "^1.4.1",
     "mocha": "^10.2.0",
-    "rsa-pem-from-mod-exp": "^0.8.5"
+    "rsa-pem-from-mod-exp": "^0.8.5",
+    "sql-model-factory": "github:Thaerious/SQLModelFactory"
   },
   "type": "module"
 }

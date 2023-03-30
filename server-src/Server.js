@@ -73,7 +73,8 @@ class Server {
     }
 
     async addRoute(path) {
-        const fullpath = Path.resolve(path);
+        const fullpath = "file:///" + Path.resolve(path);
+        console.log(fullpath);
         const { default: route } = await import(fullpath);
 
         try {
