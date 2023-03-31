@@ -1,0 +1,822 @@
+10:01:18 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:01:18 AM 192.168.1.217 POST /credentials/status application/json
+10:01:19 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:01:22 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:01:25 AM 192.168.1.217 POST /game/start application/json
+10:01:25 AM ERROR action is not defined 
+ReferenceError: action is not defined
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:22:9
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)10:01:25 AM {
+  "status": "exception",
+  "url": "/game/start",
+  "message": "action is not defined",
+  "data": {}
+}
+10:01:26 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:01:30 AM 192.168.1.217 POST /game/start application/json
+10:01:30 AM ERROR action is not defined 
+ReferenceError: action is not defined
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:22:9
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)10:01:30 AM {
+  "status": "exception",
+  "url": "/game/start",
+  "message": "action is not defined",
+  "data": {}
+}
+10:02:58 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:02:58 AM 192.168.1.217 POST /credentials/status application/json
+10:02:58 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:03:00 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:03:02 AM 192.168.1.217 POST /game/start application/json
+10:03:02 AM ERROR body is not defined 
+ReferenceError: body is not defined
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:33:50
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)10:03:02 AM Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+10:04:15 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:04:15 AM 192.168.1.217 POST /credentials/status application/json
+10:04:15 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:04:19 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:04:20 AM 192.168.1.217 POST /game/start application/json
+10:04:21 AM ERROR body is not defined 
+ReferenceError: body is not defined
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:29:50
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)10:04:21 AM Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+10:05:53 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:05:53 AM 192.168.1.217 POST /credentials/status application/json
+10:05:53 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:05:54 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:05:56 AM 192.168.1.217 POST /game/start application/json
+10:06:06 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:06:06 AM 192.168.1.217 POST /credentials/status application/json
+10:06:06 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:06:13 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:06:16 AM 192.168.1.217 POST /game/start application/json
+10:10:05 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:10:05 AM 192.168.1.217 POST /credentials/status application/json
+10:10:05 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:10:07 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:10:10 AM 192.168.1.217 POST /game/start application/json
+10:10:10 AM 192.168.1.217 POST /credentials/status application/json
+10:10:10 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:10:10 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:10:10 AM {
+  "status": "exception",
+  "url": "/gamestore/getRound",
+  "message": "instance.gameid is not of a type(s) number\ninstance.round is not of a type(s) number",
+  "data": {}
+}
+10:11:45 AM 192.168.1.217 POST /credentials/status application/json
+10:11:45 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:11:45 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:11:45 AM {
+  "status": "exception",
+  "url": "/gamestore/getRound",
+  "message": "instance.gameid is not of a type(s) number\ninstance.round is not of a type(s) number",
+  "data": {}
+}
+10:11:49 AM 192.168.1.217 POST /credentials/status application/json
+10:11:49 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:11:49 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:11:49 AM {
+  "status": "exception",
+  "url": "/gamestore/getRound",
+  "message": "instance.gameid is not of a type(s) number\ninstance.round is not of a type(s) number",
+  "data": {}
+}
+10:12:11 AM 192.168.1.217 POST /credentials/status application/json
+10:12:11 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:12:12 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:12:12 AM {
+  "status": "exception",
+  "url": "/gamestore/getRound",
+  "message": "instance.gameid is not of a type(s) number\ninstance.round is not of a type(s) number",
+  "data": {}
+}
+10:12:15 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:12:15 AM 192.168.1.217 POST /credentials/status application/json
+10:12:15 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:12:17 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:12:19 AM 192.168.1.217 POST /game/start application/json
+10:12:48 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:12:48 AM 192.168.1.217 POST /credentials/status application/json
+10:12:48 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:12:49 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:12:51 AM 192.168.1.217 POST /game/start application/json
+10:13:17 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:13:17 AM 192.168.1.217 POST /credentials/status application/json
+10:13:17 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:13:18 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:13:20 AM 192.168.1.217 POST /game/start application/json
+10:15:16 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:15:16 AM 192.168.1.217 POST /credentials/status application/json
+10:15:16 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:15:17 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:15:18 AM 192.168.1.217 POST /game/start application/json
+10:15:34 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:15:34 AM 192.168.1.217 POST /credentials/status application/json
+10:15:34 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:15:36 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:15:38 AM 192.168.1.217 POST /game/start application/json
+10:18:29 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:18:29 AM 192.168.1.217 POST /credentials/status application/json
+10:18:29 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:18:38 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:18:39 AM 192.168.1.217 POST /game/start application/json
+10:20:01 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:20:02 AM 192.168.1.217 POST /credentials/status application/json
+10:20:02 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:20:03 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:20:05 AM 192.168.1.217 POST /game/start application/json
+10:23:00 AM 192.168.1.217 POST /credentials/status application/json
+10:23:00 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:23:00 AM 192.168.1.217 POST /credentials/status application/json
+10:23:00 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:28:47 AM 192.168.1.217 POST /game/get application/json
+10:28:47 AM ERROR Cannot read properties of undefined (reading '$data') 
+TypeError: Cannot read properties of undefined (reading '$data')
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:32:37
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)10:28:47 AM {
+  "status": "exception",
+  "url": "/game/get",
+  "message": "Cannot read properties of undefined (reading '$data')",
+  "data": {}
+}
+10:29:31 AM 192.168.1.217 POST /game/get application/json
+10:29:31 AM ERROR Cannot read properties of undefined (reading '$data') 
+TypeError: Cannot read properties of undefined (reading '$data')
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:32:37
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)10:29:31 AM {
+  "status": "exception",
+  "url": "/game/get",
+  "message": "Cannot read properties of undefined (reading '$data')",
+  "data": {}
+}
+10:30:14 AM 192.168.1.217 POST /game/get application/json
+10:30:14 AM ERROR Cannot read properties of undefined (reading '$data') 
+TypeError: Cannot read properties of undefined (reading '$data')
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:33:37
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)10:30:14 AM {
+  "status": "exception",
+  "url": "/game/get",
+  "message": "Cannot read properties of undefined (reading '$data')",
+  "data": {}
+}
+10:30:49 AM 192.168.1.217 POST /game/get application/json
+10:30:49 AM ERROR near "0": syntax error 
+SqliteError: near "0": syntax error
+    at Database.prepare (D:\trunk\SQLModelFactory\node_modules\better-sqlite3\lib\methods\wrappers.js:5:21)
+    at ModelFactory.__prepare (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:25:62)
+    at ConstructorHandler.construct (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:149:33)
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:30:35
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)10:30:49 AM {
+  "status": "exception",
+  "url": "/game/get",
+  "message": "near \"0\": syntax error",
+  "data": {}
+}
+10:32:28 AM 192.168.1.217 POST /game/get application/json
+10:32:28 AM ERROR Cannot destructure property 'gameid' of 'undefined' as it is undefined. 
+TypeError: Cannot destructure property 'gameid' of 'undefined' as it is undefined.
+    at new GameModel (file:///D:/trunk/trivia-api/server-src/GameModel.js:35:19)
+    at ConstructorHandler.load (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:116:26)
+    at ConstructorHandler.construct (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:147:54)
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:30:35
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)10:32:28 AM {
+  "status": "exception",
+  "url": "/game/get",
+  "message": "Cannot destructure property 'gameid' of 'undefined' as it is undefined.",
+  "data": {}
+}
+10:35:06 AM 192.168.1.217 POST /game/get application/json
+10:35:06 AM ERROR gameModel.$data is not a function 
+TypeError: gameModel.$data is not a function
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:33:37
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)10:35:06 AM {
+  "status": "exception",
+  "url": "/game/get",
+  "message": "gameModel.$data is not a function",
+  "data": {}
+}
+10:37:23 AM 192.168.1.217 POST /game/get application/json
+10:37:23 AM ERROR gameModel.$data is not a function 
+TypeError: gameModel.$data is not a function
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:33:37
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)10:37:23 AM {
+  "status": "exception",
+  "url": "/game/get",
+  "message": "gameModel.$data is not a function",
+  "data": {}
+}
+10:38:29 AM 192.168.1.217 POST /game/get application/json
+10:38:30 AM 192.168.1.217 POST /credentials/status application/json
+10:38:30 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:38:30 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:38:30 AM 192.168.1.217 POST /credentials/status application/json
+10:38:30 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:38:32 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:38:33 AM 192.168.1.217 POST /game/start application/json
+10:38:33 AM 192.168.1.217 POST /game/get application/json
+10:38:34 AM 192.168.1.217 POST /credentials/status application/json
+10:38:34 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:38:34 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:38:34 AM 192.168.1.217 POST /credentials/status application/json
+10:38:34 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:39:45 AM 192.168.1.217 POST /credentials/status application/json
+10:39:45 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:39:45 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:39:46 AM 192.168.1.217 POST /credentials/status application/json
+10:39:46 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:39:51 AM 192.168.1.217 POST /game/get application/json
+10:40:39 AM 192.168.1.217 POST /game/get application/json
+10:41:25 AM 192.168.1.217 POST /game/get application/json
+10:41:26 AM 192.168.1.217 POST /game/get application/json
+10:41:29 AM 192.168.1.217 POST /game/get application/json
+10:41:55 AM 192.168.1.217 POST /game/get application/json
+10:41:56 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:41:56 AM ERROR Cannot read properties of undefined (reading 'username') 
+TypeError: Cannot read properties of undefined (reading 'username')
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.gamestore.js:21:26
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)10:41:56 AM {
+  "status": "exception",
+  "url": "/gamestore/getRound",
+  "message": "Cannot read properties of undefined (reading 'username')",
+  "data": {}
+}
+10:42:00 AM 192.168.1.217 POST /game/get application/json
+10:42:00 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:42:00 AM ERROR Cannot read properties of undefined (reading 'username') 
+TypeError: Cannot read properties of undefined (reading 'username')
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.gamestore.js:21:26
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)10:42:00 AM {
+  "status": "exception",
+  "url": "/gamestore/getRound",
+  "message": "Cannot read properties of undefined (reading 'username')",
+  "data": {}
+}
+10:42:29 AM 192.168.1.217 POST /game/get application/json
+10:42:33 AM 192.168.1.217 POST /credentials/status application/json
+10:42:33 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:42:33 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:42:33 AM ERROR Cannot read properties of undefined (reading 'username') 
+TypeError: Cannot read properties of undefined (reading 'username')
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.gamestore.js:21:26
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:328:13)
+    at D:\trunk\trivia-api\node_modules\express\lib\router\index.js:286:9
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:365:14)
+    at param (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:421:3)
+    at next (D:\trunk\trivia-api\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (D:\trunk\trivia-api\node_modules\body-parser\lib\types\json.js:104:7)
+    at Layer.handle [as handle_request] (D:\trunk\trivia-api\node_modules\express\lib\router\layer.js:95:5)10:42:33 AM {
+  "status": "exception",
+  "url": "/gamestore/getRound",
+  "message": "Cannot read properties of undefined (reading 'username')",
+  "data": {}
+}
+10:44:11 AM 192.168.1.217 POST /credentials/status application/json
+10:44:11 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+10:44:12 AM 192.168.1.217 POST /credentials/status application/json
+10:44:12 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {}
+}
+10:44:20 AM 192.168.1.217 POST /credentials/login application/json
+10:44:20 AM user logged in: 'ed'
+10:44:20 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:44:20 AM 192.168.1.217 POST /credentials/status application/json
+10:44:20 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:44:21 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:44:22 AM 192.168.1.217 POST /game/start application/json
+10:44:23 AM 192.168.1.217 POST /game/get application/json
+10:47:56 AM 192.168.1.217 POST /game/get application/json
+10:47:56 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:47:56 AM {
+  "status": "exception",
+  "url": "/gamestore/getGame",
+  "message": "instance is not exactly one from [subschema 0],[subschema 1]",
+  "data": {}
+}
+10:48:00 AM 192.168.1.217 POST /game/get application/json
+10:48:01 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:48:01 AM {
+  "status": "exception",
+  "url": "/gamestore/getGame",
+  "message": "instance is not exactly one from [subschema 0],[subschema 1]",
+  "data": {}
+}
+10:49:46 AM 192.168.1.217 POST /game/get application/json
+10:49:47 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:49:47 AM {
+  "status": "exception",
+  "url": "/gamestore/getGame",
+  "message": "instance is not exactly one from [subschema 0],[subschema 1]",
+  "data": {}
+}
+10:50:31 AM 192.168.1.217 POST /game/get application/json
+10:50:31 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:50:31 AM {
+  "status": "exception",
+  "url": "/gamestore/getGame",
+  "message": "instance.gameid is not of a type(s) number",
+  "data": {}
+}
+10:50:34 AM 192.168.1.217 POST /game/get application/json
+10:50:35 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:50:35 AM {
+  "status": "exception",
+  "url": "/gamestore/getGame",
+  "message": "instance.gameid is not of a type(s) number",
+  "data": {}
+}
+10:50:47 AM 192.168.1.217 POST /game/get application/json
+10:50:47 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:50:47 AM {
+  "status": "exception",
+  "url": "/gamestore/getGame",
+  "message": "instance is not exactly one from [subschema 0],[subschema 1]",
+  "data": {}
+}
+10:50:55 AM 192.168.1.217 POST /game/get application/json
+10:50:55 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:50:55 AM {
+  "status": "exception",
+  "url": "/gamestore/getGame",
+  "message": "instance is not exactly one from [subschema 0],[subschema 1]",
+  "data": {}
+}
+10:50:57 AM 192.168.1.217 POST /game/get application/json
+10:50:58 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:50:58 AM {
+  "status": "exception",
+  "url": "/gamestore/getGame",
+  "message": "instance is not exactly one from [subschema 0],[subschema 1]",
+  "data": {}
+}
+10:51:23 AM 192.168.1.217 POST /game/get application/json
+10:51:23 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:51:23 AM {
+  "status": "exception",
+  "url": "/gamestore/getGame",
+  "message": "instance is not exactly one from [subschema 0],[subschema 1]",
+  "data": {}
+}
+10:51:25 AM 192.168.1.217 POST /game/get application/json
+10:51:26 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:51:26 AM {
+  "status": "exception",
+  "url": "/gamestore/getGame",
+  "message": "instance is not exactly one from [subschema 0],[subschema 1]",
+  "data": {}
+}
+10:51:27 AM 192.168.1.217 POST /game/get application/json
+10:51:28 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:51:28 AM {
+  "status": "exception",
+  "url": "/gamestore/getGame",
+  "message": "instance is not exactly one from [subschema 0],[subschema 1]",
+  "data": {}
+}
+10:51:52 AM 192.168.1.217 POST /game/get application/json
+10:51:52 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:51:52 AM {
+  "status": "exception",
+  "url": "/gamestore/getGame",
+  "message": "instance is not exactly one from [subschema 0],[subschema 1]",
+  "data": {}
+}
+10:51:55 AM 192.168.1.217 POST /game/get application/json
+10:51:55 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:51:55 AM {
+  "status": "exception",
+  "url": "/gamestore/getGame",
+  "message": "instance is not exactly one from [subschema 0],[subschema 1]",
+  "data": {}
+}
+10:52:02 AM 192.168.1.217 POST /game/get application/json
+10:52:02 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:52:05 AM 192.168.1.217 POST /game/get application/json
+10:52:05 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:52:19 AM 192.168.1.217 POST /game/get application/json
+10:52:20 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:53:04 AM 192.168.1.217 POST /game/get application/json
+10:53:04 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:53:21 AM 192.168.1.217 POST /game/get application/json
+10:53:21 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:53:23 AM 192.168.1.217 POST /game/get application/json
+10:53:24 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:53:47 AM 192.168.1.217 POST /game/get application/json
+10:53:47 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:53:50 AM 192.168.1.217 POST /game/get application/json
+10:53:50 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:54:53 AM 192.168.1.217 POST /game/get application/json
+10:54:53 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:54:55 AM 192.168.1.217 POST /game/get application/json
+10:54:55 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:56:09 AM 192.168.1.217 POST /game/get application/json
+10:56:11 AM 192.168.1.217 POST /game/get application/json
+10:56:20 AM 192.168.1.217 POST /game/get application/json
+10:56:22 AM 192.168.1.217 POST /game/get application/json
+10:56:25 AM 192.168.1.217 POST /game/get application/json
+10:56:30 AM 192.168.1.217 POST /game/get application/json
+10:56:32 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:56:35 AM 192.168.1.217 POST /game/get application/json
+10:56:35 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:56:52 AM 192.168.1.217 POST /game/get application/json
+10:56:52 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:56:58 AM 192.168.1.217 POST /game/get application/json
+10:56:58 AM 192.168.1.217 POST /gamestore/getGame application/json
+10:57:59 AM 192.168.1.217 POST /game/get application/json
+10:57:59 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:57:59 AM {
+  "status": "exception",
+  "url": "/gamestore/getRound",
+  "message": "instance requires property \"round\"",
+  "data": {}
+}
+10:58:03 AM 192.168.1.217 POST /game/get application/json
+10:58:04 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:58:04 AM {
+  "status": "exception",
+  "url": "/gamestore/getRound",
+  "message": "instance requires property \"round\"",
+  "data": {}
+}
+10:58:10 AM 192.168.1.217 POST /game/get application/json
+10:58:10 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:58:13 AM 192.168.1.217 POST /game/get application/json
+10:58:13 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:58:47 AM 192.168.1.217 POST /game/get application/json
+10:58:50 AM 192.168.1.217 POST /game/get application/json
+10:58:59 AM 192.168.1.217 POST /game/get application/json
+10:58:59 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:59:16 AM 192.168.1.217 POST /credentials/status application/json
+10:59:16 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:59:16 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:59:17 AM 192.168.1.217 POST /credentials/status application/json
+10:59:17 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:59:18 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:59:20 AM 192.168.1.217 POST /credentials/status application/json
+10:59:20 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:59:20 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:59:24 AM 192.168.1.217 POST /credentials/status application/json
+10:59:24 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:59:25 AM 192.168.1.217 POST /gamestore/getRound application/json
+10:59:37 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:59:37 AM 192.168.1.217 POST /credentials/status application/json
+10:59:37 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  }
+}
+10:59:43 AM 192.168.1.217 POST /gamestore/listGames application/json
+10:59:44 AM 192.168.1.217 POST /game/start application/json
+10:59:45 AM 192.168.1.217 POST /game/get application/json
+10:59:45 AM 192.168.1.217 POST /gamestore/getRound application/json
+11:01:57 AM 192.168.1.217 POST /game/get application/json
+11:01:58 AM 192.168.1.217 POST /gamestore/getRound application/json
+11:02:16 AM 192.168.1.217 POST /game/get application/json
+11:02:17 AM 192.168.1.217 POST /gamestore/getRound application/json
+11:02:59 AM 192.168.1.217 POST /game/get application/json
+11:03:00 AM 192.168.1.217 POST /gamestore/getRound application/json
+11:03:20 AM 192.168.1.217 POST /game/get application/json
+11:03:20 AM 192.168.1.217 POST /gamestore/getRound application/json
+11:03:31 AM 192.168.1.217 POST /gamestore/listGames application/json
+11:03:31 AM 192.168.1.217 POST /credentials/status application/json
+11:03:31 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  },
+  "reqbody": {}
+}
+11:03:32 AM 192.168.1.217 POST /gamestore/listGames application/json
+11:03:34 AM 192.168.1.217 POST /game/start application/json
+11:03:34 AM 192.168.1.217 POST /game/get application/json
+11:03:35 AM 192.168.1.217 POST /gamestore/getRound application/json
+11:03:39 AM 192.168.1.217 POST /game/get application/json
+11:03:39 AM 192.168.1.217 POST /gamestore/getRound application/json
+11:05:03 AM 192.168.1.217 POST /game/get application/json
+11:05:05 AM 192.168.1.217 POST /gamestore/getRound application/json
+11:05:10 AM 192.168.1.217 POST /gamestore/listGames application/json
+11:05:10 AM 192.168.1.217 POST /credentials/status application/json
+11:05:10 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  },
+  "reqbody": {}
+}
+11:05:13 AM 192.168.1.217 POST /gamestore/listGames application/json
+11:05:15 AM 192.168.1.217 POST /game/start application/json
+11:05:16 AM 192.168.1.217 POST /game/get application/json
+11:05:16 AM 192.168.1.217 POST /gamestore/getRound application/json
+11:06:49 AM 192.168.1.217 POST /gamestore/listGames application/json
+11:06:49 AM 192.168.1.217 POST /credentials/status application/json
+11:06:49 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  },
+  "reqbody": {}
+}
+11:06:50 AM 192.168.1.217 POST /gamestore/listGames application/json
+11:06:52 AM 192.168.1.217 POST /game/start application/json
+11:06:52 AM 192.168.1.217 POST /game/get application/json
+11:06:53 AM 192.168.1.217 POST /gamestore/getRound application/json
+11:37:16 AM 192.168.1.217 POST /game/get application/json
+11:37:16 AM 192.168.1.217 POST /gamestore/getRound application/json

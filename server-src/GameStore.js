@@ -11,7 +11,9 @@ class GameStore {
 
     constructor(dbFile = CONST.DB.PRODUCTION) {
         this.dbFile = dbFile;
-        this.sqlOptions = { verbose: console.log };
+        this.sqlOptions = {
+            // verbose: console.log
+        };
     }
 
     create() {

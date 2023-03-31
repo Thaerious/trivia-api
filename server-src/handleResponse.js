@@ -18,8 +18,8 @@ function handleResponse(res, options = {}) {
         status: CONST.STATUS.SUCCESS || options.status,
         url: options.url || res.req.originalUrl,
         message: options.message,
-        data: options.data
-        
+        data: options.data,
+        reqbody: res.req.body    
     }, null, 2);
 
     if (options.log === true) logger.log(msg);
