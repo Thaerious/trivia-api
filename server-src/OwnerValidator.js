@@ -1,6 +1,6 @@
 import CONST from "./constants.js";
-import GameStore from "./GameStore.js";
-import Credentials from "./Credentials.js";
+import GameStore from "./models/GameStore.js";
+import Credentials from "./models/Credentials.js";
 import { Validator } from "jsonschema";
 
 /**

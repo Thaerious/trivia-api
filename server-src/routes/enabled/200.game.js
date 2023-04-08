@@ -4,7 +4,7 @@ import handleError from "../../handleError.js";
 import { isLoggedIn, getUserName } from "./200.credentials.js";
 import handleResponse from "../../handleResponse.js";
 import logger from "../../setupLogger.js";
-import GameModel from "../../GameModel.js";
+import GameModel from "../../models/GameModel.js";
 
 const router = express.Router();
 const gameModelStore = new Map();

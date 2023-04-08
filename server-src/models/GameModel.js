@@ -1,10 +1,10 @@
 import ModelFactory from "@thaerious/sql-model-factory";
-import CONST from "./constants.js";
+import CONST from "../constants.js";
 import GameStore from "./GameStore.js";
 import Credentials from "./Credentials.js";
 import jsonschema from "jsonschema";
-import OwnerValidator from "./OwnerValidator.js";
-import validatorProxy from "./validatorProxy.js";
+import OwnerValidator from "../OwnerValidator.js";
+import validatorProxy from "../validatorProxy.js";
 
 const model = {
     "gameid": `INTEGER REFERENCES ${GameStore.DIR_TABLE}(gameid)`,

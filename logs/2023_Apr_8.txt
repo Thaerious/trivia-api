@@ -1,0 +1,64 @@
+8:37:05 AM 192.168.1.217 POST /credentials/status application/json
+8:37:05 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {},
+  "reqbody": {}
+}
+8:37:22 AM 192.168.1.217 POST /credentials/login application/json
+8:37:22 AM user logged in: 'ed'
+8:37:22 AM 192.168.1.217 POST /gamestore/listGames application/json
+8:37:22 AM 192.168.1.217 POST /credentials/status application/json
+8:37:22 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  },
+  "reqbody": {}
+}
+8:37:31 AM 192.168.1.217 POST /gamestore/listGames application/json
+8:37:41 AM 192.168.1.217 POST /game/start application/json
+8:37:42 AM 192.168.1.217 POST /game/get application/json
+8:37:42 AM 192.168.1.217 POST /gamestore/getRound application/json
+8:37:51 AM 192.168.1.217 POST /gamestore/listGames application/json
+8:37:51 AM 192.168.1.217 POST /credentials/status application/json
+8:37:51 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  },
+  "reqbody": {}
+}
+8:37:55 AM 192.168.1.217 POST /gamestore/listGames application/json
+8:37:55 AM 192.168.1.217 POST /credentials/status application/json
+8:37:56 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  },
+  "reqbody": {}
+}
+8:40:05 AM 192.168.1.217 POST /gamestore/listGames application/json
+8:41:14 AM 192.168.1.217 POST /gamestore/listGames application/json
+8:41:14 AM 192.168.1.217 POST /credentials/status application/json
+8:41:14 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  },
+  "reqbody": {}
+}
+8:50:01 AM 192.168.1.217 POST /gamestore/listGames application/json
+8:50:01 AM 192.168.1.217 POST /credentials/status application/json
+8:50:01 AM {
+  "status": "success",
+  "url": "/credentials/status",
+  "data": {
+    "logged_in": true
+  },
+  "reqbody": {}
+}

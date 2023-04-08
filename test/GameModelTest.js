@@ -1,4 +1,4 @@
-import GameModel from "../server-src/GameModel.js";
+import GameModel from "../server-src/models/GameModel.js";
 
 // const validate = GameModel.validate({
 //     "username": "ed",

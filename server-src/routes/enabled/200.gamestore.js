@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import handleError from "../../handleError.js";
 import { isLoggedIn, getUserName } from "./200.credentials.js";
 import handleResponse from "../../handleResponse.js";
-import GameStore from "../../GameStore.js";
+import GameStore from "../../models/GameStore.js";
 import logger from "../../setupLogger.js";
 
 const gameStore = new GameStore().create();

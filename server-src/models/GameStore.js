@@ -1,4 +1,4 @@
-import CONST from "./constants.js";
+import CONST from "../constants.js";
 import sqlite3 from "better-sqlite3";
 import Credentials from "./Credentials.js";
 import jsonschema from "jsonschema";

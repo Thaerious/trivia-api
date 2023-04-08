@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import Credentials from "../../Credentials.js";
+import Credentials from "../../models/Credentials.js";
 import handleError from "../../handleError.js";
 import handleResponse from "../../handleResponse.js";
 import DBHash from "../../DBHash.js";
