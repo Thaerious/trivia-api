@@ -1,16 +1,17 @@
+import CONST from "../../constants.js";
 import express from "express";
 import bodyParser from "body-parser";
 import Credentials from "../../models/Credentials.js";
 import handleError from "../../handleError.js";
 import handleResponse from "../../handleResponse.js";
-import DBHash from "../../DBHash.js";
-import CONST from "../../constants.js";
+import DBHash from "../../models/DBHash.js";
 import EmailFactory from "../../EmailFactory.js";
 import logger from "../../setupLogger.js";
 
 const emailFactory = new EmailFactory();
-new DBHash(CONST.DB.PRODUCTION, CONST.DB.TABLE.EMAIL_CONF).create();
-new Credentials(CONST.DB.PRODUCTION).create();
+
+console.log(CONST.DB.PRODUCTION);
+DBHash.$createTables(CONST.DB.PRODUCTION, { verbose: console.log });
 
 const router = express.Router();
 router.use(bodyParser.json());
@@ -68,7 +69,9 @@ async function status(credentials, confirmationHashes, req, res, next) {
  * - Adds a hash to the email confirmation table.
  */
 async function register(credentials, confirmationHashes, req, res, next) {
-    await credentials.addUser(req.body.username, req.body.email, req.body.password);
+    new Credentials(req.body);
+    new DBHash({hash : req.hash});
+
     const confirmationURL = createConfirmationURL(req.body.username, confirmationHashes);
     handleResponse(res);
     const email = emailFactory.confirmation(req.body.email, confirmationURL);
@@ -76,8 +79,9 @@ async function register(credentials, confirmationHashes, req, res, next) {
 }
 
 function createConfirmationURL(username, confirmationHashes) {
-    const hash = confirmationHashes.assign(username, 16);
-    return CONST.URL.CONFIRMATON + "/" + hash;
+    const entry = new DBHash({ value: username });
+    entry.assignNewHash();
+    return CONST.URL.CONFIRMATON + "/" + entry.hash;
 }
 
 /**

@@ -58,5 +58,7 @@ GameModel.validator.addSchema({
     "required": ["username", "gameid"]
 });
 
-export default new ModelFactory(CONST.DB.PRODUCTION, {verbose: console.log}).createClass(model, GameModel);
+export default function (dbfile, settings = {}) {
+    return new ModelFactory(dbfile, settings).createClass(model, GameModel);
+}
 

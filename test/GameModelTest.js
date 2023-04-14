@@ -1,15 +1,8 @@
-import GameModel from "../server-src/models/GameModel.js";
+import GameModelFactory from "../server-src/models/GameModel.js";
 
-// const validate = GameModel.validate({
-//     "username": "ed",
-//     "gameid" : 1
-// }, "/new");
+const GameModel = GameModelFactory("./db/deleteme.db");
 
-// console.log("valid", validate.valid);
-// if (!validate.valid) console.log("\n\n", validate);
 
-// GameModel.$drop();
-// GameModel.$create();
 
 const gameModel = new GameModel({
     "username": "ed",

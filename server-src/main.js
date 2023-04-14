@@ -1,5 +1,6 @@
 import Server from "./Server.js";
 import ParseArgs from "@thaerious/parseargs";
+import logger from "./setupLogger.js";
 
 (async () => {
     const args = new ParseArgs().run();

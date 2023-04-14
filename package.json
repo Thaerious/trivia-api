@@ -2,16 +2,16 @@
   "name": "trivia-api",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server-src/main.js",
   "scripts": {
-    "server": "node server-src/main.js"
+    "server": "node server-src/main.js -v"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
-    "@thaerious/logger": "^0.3.1",
-    "@thaerious/parseargs": "^0.6.1",
+    "@thaerious/logger": "github:Thaerious/node-logger",
+    "@thaerious/parseargs": "*",
     "@thaerious/sql-model-factory": "file:../SQLModelFactory",
     "@thaerious/utility": "^0.0.8",
     "base64url": "^3.0.1",

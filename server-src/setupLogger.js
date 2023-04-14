@@ -1,4 +1,4 @@
-import Logger from "@thaerious/logger";
+import Logger, { colorize, position } from "@thaerious/logger";
 import CONST from "./constants.js";
 import { mkdirif } from "@thaerious/utility";
 import FS from "fs";
@@ -23,6 +23,15 @@ function logFilename() {
     return mkdirif(CONST.SERVER.PATH.LOGS, dateString + ".txt");
 }
 
+function fileLog(value) {
+    if (value instanceof Error) {
+        FS.appendFileSync(logFilename(), `${new Date().toLocaleTimeString()} ERROR ${value.message} \n`);
+        FS.appendFileSync(logFilename(), value.stack);
+    } else {
+        FS.appendFileSync(logFilename(), new Date().toLocaleTimeString() + " " + value + "\n");
+    }  
+}
+
 const options = {
     flags: [
         {
@@ -33,39 +42,34 @@ const options = {
     ]
 };
 
-const args = new ParseArgs().loadOptions(options).run();
+const args = new ParseArgs().config(options).run();
 const logger = new Logger();
 
-logger.channel(`standard`).enabled = true;
-logger.channel(`error`).enabled = true;
-logger.channel(`log`).enabled = true;
-logger.channel(`verbose`).enabled = false;
-logger.channel(`veryverbose`).enabled = false;
+logger.error.enabled = true;
+logger.log.enabled = true;
+logger.verbose.enabled = args.flags["verbose"];
+logger.veryverbose.enabled = args.tally["verbose"] >= 2;
 
-if (args.flags["verbose"]) logger.channel(`verbose`).enabled = true;
-if (args.tally["verbose"] >= 2) logger.channel(`veryverbose`).enabled = true;
+logger.error.handlers = [
+    fileLog,
+    console
+]
 
-logger.channel("error").addHandler((error) => {
-    if (error instanceof Error) {
-        FS.appendFileSync(logFilename(), `${new Date().toLocaleTimeString()} ERROR ${error.message} \n`);
-        FS.appendFileSync(logFilename(), error.stack);
-    } else {
-        FS.appendFileSync(logFilename(), new Date().toLocaleTimeString() + " " + error + "\n");
-    }
-});
+logger.log.handlers = [
+    fileLog,
+    console
+]
 
+logger.verbose.handlers = [
+    (v) => `[verbose] ${v}`,
+    position,
+    colorize,
+    console
+];
 
-logger.channel("log").addHandler((string) => {
-    FS.appendFileSync(logFilename(), new Date().toLocaleTimeString() + " " + string + "\n");
-});
+logger.veryverbose.handlers = [
+    colorize,
+    console
+]
 
-logger.channel("verbose").addHandler((string) => {
-    FS.appendFileSync(logFilename(), new Date().toLocaleTimeString() + " " + string + "\n");
-});
-
-logger.channel("veryverbose").addHandler((string) => {
-    FS.appendFileSync(logFilename(), new Date().toLocaleTimeString() + " " + string + "\n");
-});
-
-const all = logger.all();
-export { all as default, args };
+export default logger;

@@ -1,6 +1,16 @@
 import dotenv from "dotenv";
 import Path from "path";
-dotenv.config();
+import ParseArgs from "@thaerious/parseargs";
+
+const args = new ParseArgs({
+    flags: [{
+        long: "env",
+        default: "",
+        type: "string"
+    }]
+}).run();
+
+dotenv.config({ path: args.flags.env });
 
 export default {
     SERVER: {
@@ -23,7 +33,7 @@ export default {
         CONFIRMATION: Path.join("emails", "confirmation")
     },
     DB: {
-        PRODUCTION: "db/production.db",
+        PRODUCTION: `${process.env.DB_PRODUCTION || 'db/production.db'}`,
         SALT_ITERATIONS: 8,
         TABLE: {
             EMAIL_CONF: "email_confirmation"
