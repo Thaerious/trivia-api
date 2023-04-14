@@ -31,7 +31,7 @@ class Server {
         this.http = http.createServer(this.app);
 
         this.http.listen(port, ip, () => {
-            logger.verbose(`Listening on port ${port}`);
+            logger.verbose(`<green>HTTP Listening on port ${port}</green>`);
         });
 
         if (CONST.SERVER.SSL_KEY && CONST.SERVER.SSL_CERT) {
@@ -40,11 +40,10 @@ class Server {
                 const cert = FS.readFileSync(CONST.SERVER.SSL_CERT);
                 this.https = https.createServer({ cert, key }, this.app);
                 this.https.listen(CONST.SERVER.SSL_PORT, CONST.SERVER.LIST_IP, () => {
-                    logger.log(`HTTPS Listening on port ${CONST.SERVER.SSL_PORT}`);
+                    logger.log(`<green>HTTPS Listening on port ${CONST.SERVER.SSL_PORT}</green>`);
                 });
             } catch (err) {
-                console.log(err);
-                logger.log(`HTTPS Server Not Started.`);
+                logger.verbose(`<red>HTTPS Server Not Started.</red>`);
             }
         }
 

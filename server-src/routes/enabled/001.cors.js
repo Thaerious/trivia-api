@@ -11,4 +11,4 @@ const options = {
 
 router.use(`*`, cors(options));
 
-export default router; 
+export default router;

@@ -11,6 +11,6 @@ import logger from "./setupLogger.js";
         await server.init();
         server.start(port);
     } catch (err) {
-        console.log(err);        
+        logger.error(err);
     }    
 })()

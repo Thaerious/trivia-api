@@ -1,0 +1,280 @@
+10:33:57 AM ERROR logger is not defined 
+ReferenceError: logger is not defined
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/050.session.js:12:53
+    at ModuleJob.run (node:internal/modules/esm/module_job:185:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:281:24)
+    at async Server.addRoute (file:///D:/trunk/trivia-api/server-src/Server.js:83:36)
+    at async Server.loadRoutes (file:///D:/trunk/trivia-api/server-src/Server.js:77:13)
+    at async Server.init (file:///D:/trunk/trivia-api/server-src/Server.js:25:14)
+    at async file:///D:/trunk/trivia-api/server-src/main.js:11:910:34:39 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:36:33 AM Stopping server
+10:36:35 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:36:44 AM Stopping server
+10:36:46 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:36:56 AM Stopping server
+10:36:58 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:36:59 AM Stopping server
+10:37:15 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:37:59 AM Stopping server
+10:38:01 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:38:11 AM Stopping server
+10:38:13 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:39:05 AM Stopping server
+10:39:07 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:40:36 AM Stopping server
+10:40:38 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:41:37 AM Stopping server
+10:41:40 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:42:08 AM Stopping server
+10:42:10 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:42:50 AM Stopping server
+10:42:52 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:43:10 AM Stopping server
+10:43:12 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:44:16 AM Stopping server
+10:44:18 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:45:10 AM Stopping server
+10:45:12 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:45:29 AM Stopping server
+10:45:31 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:48:28 AM Stopping server
+10:48:29 AM ERROR no such column: gameid 
+SqliteError: no such column: gameid
+    at Database.prepare (D:\trunk\SQLModelFactory\node_modules\better-sqlite3\lib\methods\wrappers.js:5:21)
+    at ModelFactory.__prepare (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:21:62)
+    at ModelFactory.__createTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:56:14)
+    at ModelFactory.__createArrayTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:75:14)
+    at ModelFactory.__createTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:52:22)
+    at ModelFactory.__createObjectTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:64:14)
+    at ConstructorHandler.createTables (file:///D:/trunk/SQLModelFactory/src/ClassHandler.js:153:22)
+    at file:///D:/trunk/trivia-api/server-src/OwnerValidator.js:7:11
+    at ModuleJob.run (node:internal/modules/esm/module_job:185:25)
+    at async Promise.all (index 0)10:50:46 AM ERROR no such column: gameid 
+SqliteError: no such column: gameid
+    at Database.prepare (D:\trunk\SQLModelFactory\node_modules\better-sqlite3\lib\methods\wrappers.js:5:21)
+    at ModelFactory.__prepare (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:21:62)
+    at ModelFactory.__createTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:56:14)
+    at ModelFactory.__createArrayTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:75:14)
+    at ModelFactory.__createTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:52:22)
+    at ModelFactory.__createObjectTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:64:14)
+    at ConstructorHandler.createTables (file:///D:/trunk/SQLModelFactory/src/ClassHandler.js:153:22)
+    at file:///D:/trunk/trivia-api/server-src/OwnerValidator.js:7:11
+    at ModuleJob.run (node:internal/modules/esm/module_job:185:25)
+    at async Promise.all (index 0)10:51:51 AM ERROR no such column: gameid 
+SqliteError: no such column: gameid
+    at Database.prepare (D:\trunk\SQLModelFactory\node_modules\better-sqlite3\lib\methods\wrappers.js:5:21)
+    at ModelFactory.__prepare (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:21:62)
+    at ModelFactory.__createTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:56:14)
+    at ModelFactory.__createArrayTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:75:14)
+    at ModelFactory.__createTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:52:22)
+    at ModelFactory.__createObjectTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:64:14)
+    at ConstructorHandler.createTables (file:///D:/trunk/SQLModelFactory/src/ClassHandler.js:153:22)
+    at file:///D:/trunk/trivia-api/server-src/OwnerValidator.js:7:11
+    at ModuleJob.run (node:internal/modules/esm/module_job:185:25)
+    at async Promise.all (index 0)10:52:11 AM ERROR no such column: gameid 
+SqliteError: no such column: gameid
+    at Database.prepare (D:\trunk\SQLModelFactory\node_modules\better-sqlite3\lib\methods\wrappers.js:5:21)
+    at ModelFactory.__prepare (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:21:62)
+    at ModelFactory.__createTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:57:14)
+    at ModelFactory.__createArrayTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:76:14)
+    at ModelFactory.__createTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:53:22)
+    at ModelFactory.__createObjectTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:65:14)
+    at ConstructorHandler.createTables (file:///D:/trunk/SQLModelFactory/src/ClassHandler.js:153:22)
+    at file:///D:/trunk/trivia-api/server-src/OwnerValidator.js:7:11
+    at ModuleJob.run (node:internal/modules/esm/module_job:185:25)
+    at async Promise.all (index 0)10:52:27 AM ERROR no such column: gameid 
+SqliteError: no such column: gameid
+    at Database.prepare (D:\trunk\SQLModelFactory\node_modules\better-sqlite3\lib\methods\wrappers.js:5:21)
+    at ModelFactory.__prepare (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:21:62)
+    at ModelFactory.__createTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:58:14)
+    at ModelFactory.__createArrayTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:77:14)
+    at ModelFactory.__createTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:54:22)
+    at ModelFactory.__createObjectTable (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:66:14)
+    at ConstructorHandler.createTables (file:///D:/trunk/SQLModelFactory/src/ClassHandler.js:153:22)
+    at file:///D:/trunk/trivia-api/server-src/OwnerValidator.js:7:11
+    at ModuleJob.run (node:internal/modules/esm/module_job:185:25)
+    at async Promise.all (index 0)10:53:06 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:53:45 AM Stopping server
+10:53:46 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:53:49 AM Stopping server
+10:54:17 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:54:18 AM Stopping server
+10:55:23 AM ERROR ENOENT: no such file or directory, open '.cert/server.key' 
+Error: ENOENT: no such file or directory, open '.cert/server.key'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:39:32)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:56:57 AM Stopping server
+10:57:28 AM Stopping server
+10:57:30 AM ERROR Cannot read properties of undefined (reading 'file') 
+TypeError: Cannot read properties of undefined (reading 'file')
+    at position (file:///D:/trunk/trivia-api/node_modules/@thaerious/logger/src/getPos.js:22:18)
+    at console.log (file:///D:/trunk/trivia-api/server-src/setupLogger.js:56:21)
+    at Server.start (file:///D:/trunk/trivia-api/server-src/Server.js:49:17)
+    at file:///D:/trunk/trivia-api/server-src/main.js:12:1610:58:55 AM Stopping server
+10:59:45 AM Stopping server
+11:00:20 AM Stopping server
+1:48:08 PM Stopping server
+1:50:36 PM ERROR Cannot access 'CredentialsHandler' before initialization 
+ReferenceError: Cannot access 'CredentialsHandler' before initialization
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.credentials.js:17:13
+    at ModuleJob.run (node:internal/modules/esm/module_job:185:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:281:24)
+    at async Server.addRoute (file:///D:/trunk/trivia-api/server-src/Server.js:82:36)
+    at async Server.loadRoutes (file:///D:/trunk/trivia-api/server-src/Server.js:76:13)
+    at async Server.init (file:///D:/trunk/trivia-api/server-src/Server.js:25:14)
+    at async file:///D:/trunk/trivia-api/server-src/main.js:11:91:50:44 PM ERROR Cannot access 'CredentialsHandler' before initialization 
+ReferenceError: Cannot access 'CredentialsHandler' before initialization
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.credentials.js:17:13
+    at ModuleJob.run (node:internal/modules/esm/module_job:185:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:281:24)
+    at async Server.addRoute (file:///D:/trunk/trivia-api/server-src/Server.js:82:36)
+    at async Server.loadRoutes (file:///D:/trunk/trivia-api/server-src/Server.js:76:13)
+    at async Server.init (file:///D:/trunk/trivia-api/server-src/Server.js:25:14)
+    at async file:///D:/trunk/trivia-api/server-src/main.js:11:91:51:12 PM ERROR Cannot access 'CredentialsHandler' before initialization 
+ReferenceError: Cannot access 'CredentialsHandler' before initialization
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.credentials.js:17:13
+    at ModuleJob.run (node:internal/modules/esm/module_job:185:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:281:24)
+    at async Server.addRoute (file:///D:/trunk/trivia-api/server-src/Server.js:82:36)
+    at async Server.loadRoutes (file:///D:/trunk/trivia-api/server-src/Server.js:76:13)
+    at async Server.init (file:///D:/trunk/trivia-api/server-src/Server.js:25:14)
+    at async file:///D:/trunk/trivia-api/server-src/main.js:11:91:51:57 PM ERROR near "0": syntax error 
+SqliteError: near "0": syntax error
+    at Database.prepare (D:\trunk\SQLModelFactory\node_modules\better-sqlite3\lib\methods\wrappers.js:5:21)
+    at ModelFactory.__prepare (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:21:62)
+    at ConstructorHandler.construct (file:///D:/trunk/SQLModelFactory/src/ConstructorHandler.js:19:33)
+    at new CredentialsHandler (file:///D:/trunk/trivia-api/server-src/routes/enabled/200.credentials.js:17:28)
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.credentials.js:128:13
+    at ModuleJob.run (node:internal/modules/esm/module_job:185:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:281:24)
+    at async Server.addRoute (file:///D:/trunk/trivia-api/server-src/Server.js:82:36)
+    at async Server.loadRoutes (file:///D:/trunk/trivia-api/server-src/Server.js:76:13)1:53:00 PM ERROR near ")": syntax error 
+SqliteError: near ")": syntax error
+    at Database.prepare (D:\trunk\SQLModelFactory\node_modules\better-sqlite3\lib\methods\wrappers.js:5:21)
+    at ModelFactory.__prepare (file:///D:/trunk/SQLModelFactory/src/ModelFactory.js:21:62)
+    at ConstructorHandler.construct (file:///D:/trunk/SQLModelFactory/src/ConstructorHandler.js:19:33)
+    at new CredentialsHandler (file:///D:/trunk/trivia-api/server-src/routes/enabled/200.credentials.js:17:28)
+    at file:///D:/trunk/trivia-api/server-src/routes/enabled/200.credentials.js:128:13
+    at ModuleJob.run (node:internal/modules/esm/module_job:185:25)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:281:24)
+    at async Server.addRoute (file:///D:/trunk/trivia-api/server-src/Server.js:82:36)
+    at async Server.loadRoutes (file:///D:/trunk/trivia-api/server-src/Server.js:76:13)1:53:34 PM ERROR The requested module './200.credentials.js' does not provide an export named 'getUserName' 
+file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:4
+import { isLoggedIn, getUserName } from "./200.credentials.js";
+                     ^^^^^^^^^^^
+SyntaxError: The requested module './200.credentials.js' does not provide an export named 'getUserName'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:124:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:181:5)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:281:24)
+    at async Server.addRoute (file:///D:/trunk/trivia-api/server-src/Server.js:82:36)
+    at async Server.loadRoutes (file:///D:/trunk/trivia-api/server-src/Server.js:76:13)
+    at async Server.init (file:///D:/trunk/trivia-api/server-src/Server.js:25:14)
+    at async file:///D:/trunk/trivia-api/server-src/main.js:11:91:54:28 PM ERROR The requested module './200.credentials.js' does not provide an export named 'getUserName' 
+file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:4
+import { isLoggedIn, getUserName } from "./200.credentials.js";
+                     ^^^^^^^^^^^
+SyntaxError: The requested module './200.credentials.js' does not provide an export named 'getUserName'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:124:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:181:5)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:281:24)
+    at async Server.addRoute (file:///D:/trunk/trivia-api/server-src/Server.js:82:36)
+    at async Server.loadRoutes (file:///D:/trunk/trivia-api/server-src/Server.js:76:13)
+    at async Server.init (file:///D:/trunk/trivia-api/server-src/Server.js:25:14)
+    at async file:///D:/trunk/trivia-api/server-src/main.js:11:91:56:34 PM ERROR The requested module './200.credentials.js' does not provide an export named 'getUserName' 
+file:///D:/trunk/trivia-api/server-src/routes/enabled/200.game.js:4
+import { isLoggedIn, getUserName } from "./200.credentials.js";
+                     ^^^^^^^^^^^
+SyntaxError: The requested module './200.credentials.js' does not provide an export named 'getUserName'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:124:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:181:5)
+    at async Promise.all (index 0)
+    at async ESMLoader.import (node:internal/modules/esm/loader:281:24)
+    at async Server.addRoute (file:///D:/trunk/trivia-api/server-src/Server.js:82:36)
+    at async Server.loadRoutes (file:///D:/trunk/trivia-api/server-src/Server.js:76:13)
+    at async Server.init (file:///D:/trunk/trivia-api/server-src/Server.js:25:14)
+    at async file:///D:/trunk/trivia-api/server-src/main.js:11:91:57:42 PM Stopping server

@@ -1,5 +1,4 @@
 import CONST from "../constants.js";
-import sqlite3 from "better-sqlite3";
 import bcrypt from "bcryptjs";
 import ModelFactory from "@thaerious/sql-model-factory";
 
@@ -14,40 +13,17 @@ class Credentials {
     /**
      * Assign a password-hash to the player based on the argument 'password'.
      */
-    async setHash(username, password) {
-        if (!password) throw new Error(`undefined password`);
-        if (!this.hasUser(username)) throw new Error(`unknown user: ${username}`);
-
+    async setPassword(password = "") {
         this.hash = await bcrypt.hash(password, CONST.DB.SALT_ITERATIONS);
         return this.hash;
     }
 
-    async validateHash(username, password) {
-        if (!this.hasUser(username)) return false;
+    /**
+     * Determine if password matches the previously set password
+     */
+    async validatePassword(password) {
         return bcrypt.compare(password, this.hash);
     }
-
-    /**
-     * True if the username exists, otherwise false.
-     */
-    static hasUser(username) {
-        const sql = `SELECT * FROM ${Credentials.TABLE} WHERE username = ?`;
-        const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
-        const results = stmt.get(username);
-        return results !== undefined;
-    }
-
-    /**
-     * True if the email has alredy been used, otherwise false.
-     */
-    static hasEmail(email) {
-        const sql = `SELECT * FROM ${Credentials.TABLE} WHERE email = ?`;
-        const stmt = new sqlite3(this.dbFile, this.sqlOptions).prepare(sql);
-        const results = stmt.get(email);
-        return results !== undefined;
-    }
 }
 
-export default function (dbfile, settings = {}) {
-    return new ModelFactory(dbfile, settings).createClass(model, Credentials);
-}
+export default new ModelFactory().createClass(model, Credentials);

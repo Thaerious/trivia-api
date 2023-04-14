@@ -1,10 +1,9 @@
-import ModelFactory from "@thaerious/sql-model-factory";
-import CONST from "../constants.js";
 import GameStore from "./GameStore.js";
 import Credentials from "./Credentials.js";
 import jsonschema from "jsonschema";
 import OwnerValidator from "../OwnerValidator.js";
 import validatorProxy from "../validatorProxy.js";
+import ModelFactory from "@thaerious/sql-model-factory";
 
 const model = {
     "gameid": `INTEGER REFERENCES ${GameStore.DIR_TABLE}(gameid)`,
@@ -58,7 +57,5 @@ GameModel.validator.addSchema({
     "required": ["username", "gameid"]
 });
 
-export default function (dbfile, settings = {}) {
-    return new ModelFactory(dbfile, settings).createClass(model, GameModel);
-}
+export default new ModelFactory().createClass(model, GameModel);
 

@@ -2,55 +2,26 @@ import CONST from "../constants.js";
 import sqlite3 from "better-sqlite3";
 import Credentials from "./Credentials.js";
 import jsonschema from "jsonschema";
+import ModelFactory from "@thaerious/sql-model-factory";
+
+const model = {
+    'gamename': `VARCHAR(32) NOT NULL`,
+    'username': `VARCHAR(32) REFERENCES ${Credentials.$table}(idx)`,
+    'data': {
+        'round': `INTEGER NOT NULL`,
+        'col': `INTEGER NOT NULL`,
+        'desc': `VARCHAR(64) NOT NULL`,
+        '$append': [
+            `UNIQUE(idx, round, col)`        
+        ]
+    },
+    '$append': [
+        `UNIQUE(gamename, username)`
+    ]
+};
 
 class GameStore {
-    static DIR_TABLE = 'gs_dir';
-    static DATA_TABLE = 'gs_data';
-    static CAT_TABLE = 'gs_categories';
     static validator = new jsonschema.Validator();
-
-    constructor(dbFile = CONST.DB.PRODUCTION) {
-        this.dbFile = dbFile;
-        this.sqlOptions = {
-            // verbose: console.log
-        };
-    }
-
-    create() {
-        new sqlite3(this.dbFile, this.sqlOptions).prepare(`
-            CREATE TABLE IF NOT EXISTS ${GameStore.DIR_TABLE} (
-                gameid INTEGER PRIMARY KEY AUTOINCREMENT,
-                gamename VARCHAR(32) NOT NULL,
-                username VARCHAR(32) REFERENCES ${Credentials.TABLE}(username),
-                UNIQUE(gamename, username)
-            )`)
-            .run();
-
-        new sqlite3(this.dbFile, this.sqlOptions).prepare(`
-            CREATE TABLE IF NOT EXISTS ${GameStore.CAT_TABLE} (
-                gameid INTEGER REFERENCES ${GameStore.DIR_TABLE}(gameid),
-                round INTEGER NOT NULL,
-                col INTEGER NOT NULL,
-                desc VARCHAR(64) NOT NULL,
-                UNIQUE(gameid, round, col)
-            )`)
-            .run();
-
-        new sqlite3(this.dbFile, this.sqlOptions).prepare(`
-            CREATE TABLE IF NOT EXISTS ${GameStore.DATA_TABLE} (
-                gameid INTEGER REFERENCES ${GameStore.DIR_TABLE}(gameid),
-                round INTEGER NOT NULL,
-                col INTEGER NOT NULL,
-                row INTEGER NOT NULL,
-                value INTEGER,
-                question VARCHAR(256),
-                answer VARCHAR(256),
-                PRIMARY KEY(gameid, round, col, row)
-            )`)
-            .run();
-
-        return this;
-    }
 
     static validate(obj, schema) {
         return this.validator.validate(obj, schema);
@@ -338,4 +309,4 @@ GameStore.validator.addSchema({
     "required": ["gameid", "round"]
 });
 
-export default GameStore;
+export default new ModelFactory().createClass(model, GameStore);

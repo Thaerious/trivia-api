@@ -1,11 +1,13 @@
 import express from "express";
 import bodyParser from "body-parser";
-import DBHash from "../../DBHash.js";
+import DBHash from "../../models/DBHash.js";
 import CONST from "../../constants.js";
 import handleError from "../../handleError.js";
 import Credentials from "../../models/Credentials.js";
+import logger from "../../setupLogger.js";
 
-new DBHash(CONST.DB.PRODUCTION).create();
+DBHash.$createTables(CONST.DB.PRODUCTION, { verbose: logger.sql });
+
 const router = express.Router();
 router.use(bodyParser.json());
 

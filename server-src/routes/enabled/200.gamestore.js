@@ -5,8 +5,10 @@ import { isLoggedIn, getUserName } from "./200.credentials.js";
 import handleResponse from "../../handleResponse.js";
 import GameStore from "../../models/GameStore.js";
 import logger from "../../setupLogger.js";
+import CONST from "../../constants.js";
 
-const gameStore = new GameStore().create();
+GameStore.$createTables(CONST.DB.PRODUCTION, { verbose: logger.sql });
+
 const router = express.Router();
 router.use(bodyParser.json());
 

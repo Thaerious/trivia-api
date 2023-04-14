@@ -6,6 +6,8 @@ import DBHash from "../server-src/models/DBHash.js";
 import CONST from "../server-src/constants.js";
 import { createConfirmationURL } from "../server-src/routes/enabled/200.credentials.js";
 
+// npx mocha --env ./test/.env ./test/200.credentials.js
+
 const args = new ParseArgs().run();
 
 describe("200.credentials.js", function () {

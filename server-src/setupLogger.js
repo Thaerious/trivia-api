@@ -29,7 +29,7 @@ function fileLog(value) {
         FS.appendFileSync(logFilename(), value.stack);
     } else {
         FS.appendFileSync(logFilename(), new Date().toLocaleTimeString() + " " + value + "\n");
-    }  
+    }
 }
 
 const options = {
@@ -47,6 +47,7 @@ const logger = new Logger();
 
 logger.error.enabled = true;
 logger.log.enabled = true;
+logger.sql.enabled = false;
 logger.verbose.enabled = args.flags["verbose"];
 logger.veryverbose.enabled = args.tally["verbose"] >= 2;
 
@@ -61,7 +62,6 @@ logger.log.handlers = [
 ]
 
 logger.verbose.handlers = [
-    (v) => `[verbose] ${v}`,
     position,
     colorize,
     console
@@ -71,5 +71,19 @@ logger.veryverbose.handlers = [
     colorize,
     console
 ]
+
+logger.sql.handlers = [
+    v => {
+        return v.replace(/([a-z]+)/g, "<yellow>$1</yellow>")
+        .replace(/<yellow>undefined<\/yellow>/g, "<red>undefined</red>")
+    },
+    colorize,
+    console
+]
+
+// const stdout = console.log;
+// console.log = (s) => {
+//     stdout(`[con] ${position(s)}`);
+// }
 
 export default logger;

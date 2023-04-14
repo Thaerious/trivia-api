@@ -2,6 +2,10 @@ import CONST from "./constants.js";
 import GameStore from "./models/GameStore.js";
 import Credentials from "./models/Credentials.js";
 import { Validator } from "jsonschema";
+import logger from "./setupLogger.js";
+
+GameStore.$createTables(CONST.DB.PRODUCTION, {verbose: logger.sql}); 
+Credentials.$createTables(CONST.DB.PRODUCTION, {verbose: logger.sql});
 
 /**
  * Used as a format function in jsonschema.
@@ -9,8 +13,6 @@ import { Validator } from "jsonschema";
  */
 export default class OwnerValidator {
     constructor() {
-        this.gameStore = new GameStore(CONST.DB.PRODUCTION).create();
-        this.credentials = new Credentials(CONST.DB.PRODUCTION).create();
         Validator.prototype.customFormats.owner = i => this.setOwner(i);
         Validator.prototype.customFormats.ownedGameID = i => this.gameID(i);
     }
