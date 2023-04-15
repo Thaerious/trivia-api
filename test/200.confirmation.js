@@ -6,13 +6,14 @@ import DBHash from "../server-src/DBHash.js";
 import { createConfirmationURL } from "../server-src/routes/enabled/200.credentials.js";
 import Credentials from "../server-src/models/Credentials.js";
 import { confirm } from "../server-src/routes/enabled/200.confirmation.js";
+import logger from "../server-src/setupLogger.js";
 
 const args = new ParseArgs().run();
 
 describe("200.confirmation.js", function () {
     before(function () {
         if (FS.existsSync(CONST.DB.PRODUCTION)) {
-            console.log(`Before: Removing database '${CONST.DB.PRODUCTION}'`);
+            logger.verbose(`Before: Removing database '${CONST.DB.PRODUCTION}'`);
             FS.rmSync(CONST.DB.PRODUCTION, { recursive: true });
         }
         this.confHash = new DBHash(CONST.DB.PRODUCTION, CONST.DB.TABLE.EMAIL_CONF).create();
@@ -21,7 +22,7 @@ describe("200.confirmation.js", function () {
     after(function () {
         if (!args.flags["no-clean"]) {
             if (FS.existsSync(CONST.DB.PRODUCTION)) {
-                console.log(`After: Removing database '${CONST.DB.PRODUCTION}'`);
+                logger.verbose(`After: Removing database '${CONST.DB.PRODUCTION}'`);
                 FS.rmSync(CONST.DB.PRODUCTION, { recursive: true });
             }
         }

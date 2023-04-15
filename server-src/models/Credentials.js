@@ -6,6 +6,7 @@ const model = {
     "username": "VARCHAR(32) UNIQUE",
     "email": "VARCHAR(64) UNIQUE",
     "hash": "VARCHAR(64)",
+    "created": "DATE DEFAULT (datetime('now','localtime'))",
     "confirmed": "INTEGER DEFAULT 0"
 }
 

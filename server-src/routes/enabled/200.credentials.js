@@ -10,6 +10,7 @@ import logger from "../../setupLogger.js";
 
 const emailFactory = new EmailFactory();
 
+Credentials.$createTables(CONST.DB.PRODUCTION, { verbose: logger.sql });
 DBHash.$createTables(CONST.DB.PRODUCTION, { verbose: logger.sql });
 
 class CredentialsHandler {
@@ -44,12 +45,15 @@ class CredentialsHandler {
      * - Adds a hash to the email confirmation table.
      */
     register(req, res) {
-        new Credentials(req.body);
+        const cred = new Credentials({ username: req.body.username, email: req.body.email });
+        cred.setPassword(req.body.password);
         const conf = new DBHash({ hash: req.hash });
         const confirmationURL = CONST.URL.CONFIRMATON + "/" + conf.assignNewHash();
+        
         emailFactory
             .confirmation(req.body.email, confirmationURL)
             .send();
+        
         handleResponse(res);
     }
 

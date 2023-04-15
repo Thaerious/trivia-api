@@ -47,7 +47,7 @@ const logger = new Logger();
 
 logger.error.enabled = true;
 logger.log.enabled = true;
-logger.sql.enabled = false;
+logger.sql.enabled = true;
 logger.verbose.enabled = args.flags["verbose"];
 logger.veryverbose.enabled = args.tally["verbose"] >= 2;
 
@@ -74,7 +74,7 @@ logger.veryverbose.handlers = [
 
 logger.sql.handlers = [
     v => {
-        return v.replace(/([a-z]+)/g, "<yellow>$1</yellow>")
+        return v.replace(/([ \n][a-z]+[ \n])/g, "<yellow>$1</yellow>")
         .replace(/<yellow>undefined<\/yellow>/g, "<red>undefined</red>")
     },
     colorize,
