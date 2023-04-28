@@ -3,14 +3,13 @@ import bodyParser from "body-parser";
 import Credentials from "../../models/Credentials.js";
 import handleError from "../../handleError.js";
 import handleResponse from "../../handleResponse.js";
-import DBHash from "../../DBHash.js";
+import DBHash from "../../models/EmailHash.js";
 import CONST from "../../constants.js";
 import EmailFactory from "../../EmailFactory.js";
 import logger from "../../setupLogger.js";
 
 const emailFactory = new EmailFactory();
 new DBHash(CONST.DB.PRODUCTION, CONST.DB.TABLE.EMAIL_CONF).create();
-new Credentials(CONST.DB.PRODUCTION).create();
 
 const router = express.Router();
 router.use(bodyParser.json());
