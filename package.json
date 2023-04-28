@@ -12,7 +12,7 @@
     "@sendgrid/mail": "^7.7.0",
     "@thaerious/logger": "^0.3.1",
     "@thaerious/parseargs": "^0.6.1",
-    "@thaerious/sql-model-factory": "file:../SQLModelFactory",
+    "@thaerious/sql-model-factory": "github:Thaerious/SQLModelFactory",
     "@thaerious/utility": "^0.0.8",
     "base64url": "^3.0.1",
     "bcryptjs": "^2.4.3",

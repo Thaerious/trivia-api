@@ -1,62 +1,159 @@
 import ModelFactory from "@thaerious/sql-model-factory";
 import CONST from "../constants.js";
-import GameStore from "./GameStore.js";
-import Credentials from "./Credentials.js";
-import jsonschema from "jsonschema";
-import OwnerValidator from "../OwnerValidator.js";
-import validatorProxy from "../validatorProxy.js";
 
-const model = {
-    "gameid": `INTEGER REFERENCES ${GameStore.DIR_TABLE}(gameid)`,
-    "username": `VARCHAR(32) REFERENCES ${Credentials.TABLE}(username)`,
-    "current_player": `INTEGER DEFAULT 0 NOT NULL`,
-    "current_round": `INTEGER DEFAULT 1 NOT NULL`,
-    "state": `INTEGER DEFAULT 0 NOT NULL`,
-    "players": {
-        "name": `VARCHAR(32) REFERENCES ${Credentials.TABLE}(username)`,
-        "score": `INTEGER DEFAULT 0 NOT NULL`
+const factory = ModelFactory.instance;
+factory.dbFile = CONST.DB.PRODUCTION;
+
+factory.createClasses({
+   "GameModel": {
+        "gamename": "VARCHAR(32) NOT NULL",
+        "owner": "@Credentials NOT NULL",
+        "rounds": [{            
+            "columns": [{
+                "desc": "VARCHAR(64) NOT NULL",
+                "rows": [{
+                    "value": "INTEGER",
+                    "question": "VARCHAR(256)",
+                    "answer": "VARCHAR(256)",                    
+                }]
+            }]
+        }],
+        "$append": [
+            "UNIQUE(gamename, owner)"
+        ]
     },
-    "spent": {
-        "row": `INTEGER DEFAULT 0 NOT NULL`,
-        "col": `INTEGER DEFAULT 0 NOT NULL`,
+    "Categories": {
     }
-};
-
-class GameModel {
-    static {
-        GameModel.ownerValidator = new OwnerValidator();
-        GameModel.validator = new jsonschema.Validator();
-    }
-
-    static validate(obj, path) {
-        return this.validator.validate(obj, { '$ref': path });
-    }
-
-    constructor({ gameid, host }) {
-        GameModel.validate(arguments[0], "constructor");
-        return new Proxy(this, validatorProxy);
-    }
-}
-
-GameModel.validator.addSchema({
-    "id": "/constructor",
-    "type": "object",
-    "properties": {
-        "username": { type: "string", format: "owner", minLength: 1, maxLength: 32 },
-        "gameid": { type: "number", format: "ownedGameID" },
-    },
-    "required": ["username", "gameid"]
 });
 
-GameModel.validator.addSchema({
-    "id": "/test",
-    "type": "object",
-    "properties": {
-        "username": { type: "string", format: "owner", minLength: 1, maxLength: 32 },
-        "gameid": { type: "number", format: "ownedGameID" },
-    },
-    "required": ["username", "gameid"]
-});
+export default factory.classes.GameModel;
 
-export default new ModelFactory(CONST.DB.PRODUCTION, {verbose: console.log}).createClass(model, GameModel);
+// GameStore.validator.addSchema({
+//     "id": "/newGame",
+//     "type": "object",
+//     "properties": {
+//         "username": { "type": "string", minLength: 1, maxLength: 32 },
+//         "gamename": { "type": "string", minLength: 1, maxLength: 32 },
+//     },
+//     "required": ["username", "gamename"]
+// });
 
+// GameStore.validator.addSchema({
+//     "id": "/deleteGame",
+//     "type": "object",
+//     "properties": {
+//         "username": { "type": "string", minLength: 1, maxLength: 32 },
+//         "gamename": { "type": "string", minLength: 1, maxLength: 32 },
+//     },
+//     "required": ["gameid"]
+// });
+
+// GameStore.validator.addSchema({
+//     "id": "/getGame",
+//     "type": "object",
+//     "properties": {
+//         "gameid": { "type": "number" },
+//         "gamename": { "type": "string" },
+//         "username": { "type": "string" }
+//     },
+//     oneOf: [
+//         { "required": ["gameid"] },
+//         { "required": ["gamename", "username"] }
+//     ]
+// });
+
+// GameStore.validator.addSchema({
+//     "id": "/listGames",
+//     "type": "object",
+//     "properties": {
+//         "username": { "type": "string", minLength: 1, maxLength: 32 }
+//     },
+//     "required": ["username"]
+// });
+
+// GameStore.validator.addSchema({
+//     "id": "/addQuestion",
+//     "type": "object",
+//     "properties": {
+//         "gameid": { "type": "number" },
+//         "round": { "type": "number" },
+//         "col": { "type": "number" },
+//         "row": { "type": "number" },
+//         "value": {
+//             "anyOf": [
+//                 { "type": "number" },
+//                 { "type": "null" }
+//             ]
+//     },
+//     "question": { "type": "string", minLength: 0, maxLength: 256 },
+//     "answer": { "type": "string", minLength: 0, maxLength: 256 }
+// },
+//     "required": ["gameid", "round", "col", "row"]
+// });
+
+// GameStore.validator.addSchema({
+//     "id": "/getQuestion",
+//     "type": "object",
+//     "properties": {
+//         "gameid": { "type": "number" },
+//         "round": { "type": "number" },
+//         "col": { "type": "number" },
+//         "row": { "type": "number" },
+//     },
+//     "required": ["gameid", "round", "col", "row"]
+// });
+
+// GameStore.validator.addSchema({
+//     "id": "/deleteQuestion",
+//     "type": "object",
+//     "properties": {
+//         "gameid": { "type": "number" },
+//         "round": { "type": "number" },
+//         "col": { "type": "number" },
+//         "row": { "type": "number" },
+//     },
+//     "required": ["gameid", "round", "col", "row"]
+// });
+
+// GameStore.validator.addSchema({
+//     "id": "/setCategory",
+//     "type": "object",
+//     "properties": {
+//         "gameid": { "type": "number" },
+//         "round": { "type": "number" },
+//         "col": { "type": "number" },
+//         "description": { "type": "string", minLength: 0, maxLength: 64 },
+//     },
+//     "required": ["gameid", "round", "col", "description"]
+// });
+
+// GameStore.validator.addSchema({
+//     "id": "/getCategory",
+//     "type": "object",
+//     "properties": {
+//         "gameid": { "type": "number" },
+//         "round": { "type": "number" },
+//         "col": { "type": "number" }
+//     },
+//     "required": ["gameid", "round", "col"]
+// });
+
+// GameStore.validator.addSchema({
+//     "id": "/allCategories",
+//     "type": "object",
+//     "properties": {
+//         "gameid": { "type": "number" },
+//         "round": { "type": "number" }
+//     },
+//     "required": ["gameid", "round"]
+// });
+
+// GameStore.validator.addSchema({
+//     "id": "/getRound",
+//     "type": "object",
+//     "properties": {
+//         "gameid": { "type": "number" },
+//         "round": { "type": "number" }
+//     },
+//     "required": ["gameid", "round"]
+// });
