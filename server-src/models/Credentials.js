@@ -15,7 +15,7 @@ factory.createClasses({
 });
 
 export default class Credentials extends factory.classes.Credentials {
-    constructor(username, email) {
+    constructor(username, email, password) {
         let fields = { username: username, email: email };
         if (typeof username === "object") {
             fields = username;

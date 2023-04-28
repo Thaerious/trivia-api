@@ -6,31 +6,30 @@ import Path from "path";
 import CONST from "./constants.js";
 import logger from "./setupLogger.js";
 import chokidar from "chokidar";
+import { getSystemErrorMap } from "util";
 
 class Server {
     async init(options) {
         options = {
             path: CONST.SERVER.PATH.ROUTES,
-            watch: false,
             ...options,
         }
-        
-        logger.verbose("Initialize Server");
+
+        logger.verbose("<yellow>Initialize Server</yellow>");
         this.app = Express();
 
         this.app.set(`views`, `www/views`);
         this.app.set(`view engine`, `ejs`);
 
-        if (options.watch) this.startWatch(options.path);
-        else await this.loadRoutes(options.path);
-        
+        await this.loadRoutes(options.path);
+
         return this;
     }
 
     start(port = CONST.SERVER.PORT, ip = CONST.SERVER.LIST_IP) {
         this.http = http.createServer(this.app);
         this.http.listen(port, ip, () => {
-            logger.standard(`Listening on port ${port}`);
+            logger.verbose(`<green>HTTP Listening on port ${port}</green>`);
         });
 
         if (CONST.SERVER.SSL_KEY && CONST.SERVER.SSL_CERT) {
@@ -39,11 +38,10 @@ class Server {
                 const cert = FS.readFileSync(CONST.SERVER.SSL_CERT);
                 this.https = https.createServer({ cert, key }, this.app);
                 this.https.listen(CONST.SERVER.SSL_PORT, CONST.SERVER.LIST_IP, () => {
-                    logger.standard(`HTTPS Listening on port ${CONST.SERVER.SSL_PORT}`);
+                    logger.verbose(`<green>HTTPS Listening on port ${CONST.SERVER.SSL_PORT}</green>`);
                 });
             } catch (err) {
-                console.log(err);
-                logger.standard(`HTTPS Server Not Started.`);
+                logger.verbose(`<red>HTTPS Server Not Started.</red>`);
             }
         }
 
@@ -60,44 +58,37 @@ class Server {
     }
 
     async loadRoutes(path = CONST.SERVER.PATH.ROUTES) {
-        logger.verbose(`loading routes from ${path} ${FS.existsSync(path)}`);
-        if (!FS.existsSync(path)) return;
+
+        if (!FS.existsSync(path)) {
+            logger.verbose(`Route path not found: <red>${path}</red> ${FS.existsSync(path)}`);
+            return;
+        } else {
+            logger.verbose(`Loading routes from <green>${path}</green>`);
+        }
 
         const contents = FS.readdirSync(path).sort();
 
         for (const entry of contents) {
             const fullpath = Path.join(process.cwd(), path, entry);
-            logger.verbose(`static route ${fullpath}`);
             await this.addRoute(fullpath);
         }
     }
 
     async addRoute(path) {
         const fullpath = "file:///" + Path.resolve(path);
-        console.log(fullpath);
-        const { default: route } = await import(fullpath);
+        logger.verbose(`* <yellow>${Path.parse(fullpath).name}</yellow>`);
 
         try {
+            const { default: route } = await import(fullpath);
             this.app.use(route);
         } catch (err) {
             const parse = Path.parse(fullpath);
-            throw new Error(`route ${parse.name} did not load`, { cause: err });
+            logger.error(`route ${parse.name} did not load`);
+            logger.error(err);
+            process.exit();
         }
     }
 
-    startWatch(path = CONST.SERVER.PATH.ROUTES) {
-        this.watcher = chokidar.watch(path, { ignored: /^\./, persistent: true });
-
-        this.watcher
-            .on('add', (path) => {
-                logger.verbose(`watch route ${path}`);
-                Path.resolve(path)
-                this.addRoute(path);
-            })
-            .on('change',  (path) =>{ console.log('File', path, 'has been changed'); })
-            .on('unlink',  (path)=> { console.log('File', path, 'has been removed'); })
-            .on('error',  (error) =>{ console.error('Error happened', error); })
-    }
 }
 
 export default Server;

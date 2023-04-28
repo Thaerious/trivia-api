@@ -1,11 +1,10 @@
 import express from "express";
 import bodyParser from "body-parser";
-import DBHash from "../../DBHash.js";
+import EmailHash from "../../models/EmailHash.js"; 
 import CONST from "../../constants.js";
 import handleError from "../../handleError.js";
 import Credentials from "../../models/Credentials.js";
 
-new DBHash(CONST.DB.PRODUCTION).create();
 const router = express.Router();
 router.use(bodyParser.json());
 
