@@ -1,0 +1,25 @@
+All API calls are formatted as follows:
+
+The URL consists of server/router/action
+The 'router' the name w/o the index prefix or extension (ie for 200.credentials.js it is credentials).
+The 'action' is the method called on the router.
+
+All parameters are passed in the body as a json object.
+
+The response has the following format:
+
+The reponse will have the following codes depending on the api result:
+  * 202: success
+  * 404: rejected
+  * 500: exception
+
+The status field in the body will mirror these codes.
+
+The reponse body will have the following fields:
+  * data:
+  ** If success the return value of the function call
+  ** If reject may contain a string value describing the reason or empty.
+  ** If exceptoin will a string message describing the exception.
+  * reqbody: the data passed to the request
+
+Other fields may exist to assist in debugging but only the data field should be relied upon to retrieve results.

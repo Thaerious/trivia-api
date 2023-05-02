@@ -25,7 +25,6 @@ export default class OwnerValidator {
 
     gameID(gameid) {
         const gameinfo = this.gameStore.getGame({ gameid: gameid });
-        console.log(gameinfo);
         return gameinfo?.username === this.owner;
     }
 }

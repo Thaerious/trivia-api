@@ -1,6 +1,7 @@
 import CONST from "../constants.js";
 import bcrypt from "bcryptjs";
 import ModelFactory from "@thaerious/sql-model-factory";
+import ParseArgs from "@thaerious/parseargs";
 
 const factory = ModelFactory.instance;
 factory.dbFile = CONST.DB.PRODUCTION;
@@ -15,11 +16,12 @@ factory.createClasses({
 });
 
 export default class Credentials extends factory.classes.Credentials {
-    constructor(username, email, password) {
+    constructor({username, email, password}) {
         let fields = { username: username, email: email };
         if (typeof username === "object") {
             fields = username;
         }
+        console.log("fields", fields);
         super(fields);
     }
 

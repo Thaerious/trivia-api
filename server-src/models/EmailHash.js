@@ -6,17 +6,19 @@ import { Email } from "../EmailFactory.js";
 const factory = ModelFactory.instance;
 factory.dbFile = CONST.DB.PRODUCTION;
 
+const HASH_LEN = 64;
+
 factory.createClasses({
     EmailHash : {
-        "hash": "VARCHAR(64)",
-        "email": "VARCHAR(64)",
+        "hash": `VARCHAR(${HASH_LEN})`,
+        "email": `VARCHAR(64)`,
         "created": "DATE DEFAULT (datetime('now','localtime'))"
     }
 });
 
 class EmailHash extends factory.classes.EmailHash {
     constructor(email) {
-        const hash = crypto.randomBytes(bytes).toString(encoding);
+        const hash = crypto.randomBytes(HASH_LEN / 2).toString("hex");
 
         const prev = EmailHash.get({ email: email })
         if (prev) {

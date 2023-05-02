@@ -41,7 +41,7 @@ class Server {
                     logger.verbose(`<green>HTTPS Listening on port ${CONST.SERVER.SSL_PORT}</green>`);
                 });
             } catch (err) {
-                logger.verbose(`<red>HTTPS Server Not Started.</red>`);
+                logger.verbose(`<red>HTTPS Not Started.</red>`);
             }
         }
 
@@ -51,7 +51,7 @@ class Server {
     }
 
     stop() {
-        logger.standard(`Stopping server`);
+        logger.verbose(`<yellow>Stopping server</yellow>`);
         if (this.http) this.http.close();
         if (this.https) this.https.close();
         process.exit();

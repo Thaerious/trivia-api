@@ -1,4 +1,4 @@
-import Logger, { colorize } from "@thaerious/logger";
+import Logger, { colorize, position} from "@thaerious/logger";
 import CONST from "./constants.js";
 import { mkdirif } from "@thaerious/utility";
 import FS from "fs";
@@ -28,15 +28,18 @@ const options = {
         {
             long: `verbose`,
             short: `v`,
-            type: `boolean`
+            type: `count`
         }
     ]
 };
 
-const args = new ParseArgs().config(options).run();
+const args = new ParseArgs(options);
 const logger = new Logger();
 
-const fileLogger = (value) => FS.appendFileSync(logFilename(), new Date().toLocaleTimeString() + " " + value + "\n");
+const fileLogger = (value) => {
+    FS.appendFileSync(logFilename(), new Date().toLocaleTimeString() + " " + value + "\n");
+    return value;
+}
 
 logger.standard.enabled = true;
 logger.error.enabled = true;
@@ -44,8 +47,8 @@ logger.log.enabled = true;
 logger.verbose.enabled = false;
 logger.veryverbose.enabled = false;
 
-if (args.flags["verbose"]) logger.verbose.enabled = true;
-if (args.tally["verbose"] >= 2) logger.veryverbose.enabled = true;
+if (args.verbose >= 1) logger.verbose.enabled = true;
+if (args.verbose >= 2) logger.veryverbose.enabled = true;
 
 logger.error.handlers = [
     (error) => {
@@ -55,6 +58,7 @@ logger.error.handlers = [
             return `<red>ERROR ${error}</red>`;
         }
     },
+    position,    
     colorize,
     console
 ];
@@ -64,16 +68,19 @@ logger.error.handlers = [
 
 
 logger.log.handlers = [
+    position,
     fileLogger,
     console
 ];
 
 logger.verbose.handlers = [
+    position,
     colorize,
     console
 ];
 
 logger.veryverbose.handlers = [
+    position,
     colorize,
     console
 ];

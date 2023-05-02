@@ -28,7 +28,6 @@ router.use(`/game/:action`, async (req, res, next) => {
 
             case "get": {
                 const gameModel = new GameModel(req.body.idx);
-                console.log(gameModel);
                 handleResponse(res, {
                     data: gameModel.$data
                 });

@@ -12,19 +12,27 @@ import logger from "./setupLogger.js";
  * }
  */
 function handleResponse(res, options = {}) {
-
     res.set('Content-Type', 'application/json');
-    const msg = JSON.stringify({
-        status: CONST.STATUS.SUCCESS || options.status,
+    
+    const msg = {
         url: options.url || res.req.originalUrl,
         message: options.message,
         data: options.data,
-        reqbody: res.req.body    
-    }, null, 2);
+        reqbody: res.req.body
+    };
 
-    if (options.log === true) logger.log(msg);
-    res.status(options.code || 200);
-    res.write(msg);
+    switch (options.code) {
+        case 404: msg.status = CONST.STATUS.REJECTED
+            break;
+        case 500: msg.status = CONST.STATUS.EXCEPTION
+            break;
+        default: msg.status = CONST.STATUS.SUCCESS
+            break;
+    }
+
+    if (options.log === true) logger.log(JSON.stringify(msg, null, 2));
+    res.status(options.code || 202);
+    res.write(JSON.stringify(msg, null, 2));
     res.end();
 }
 
