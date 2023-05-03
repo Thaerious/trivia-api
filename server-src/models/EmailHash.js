@@ -18,6 +18,7 @@ factory.createClasses({
 
 class EmailHash extends factory.classes.EmailHash {
     constructor(email) {
+        console.trace(email);
         const hash = crypto.randomBytes(HASH_LEN / 2).toString("hex");
 
         const prev = EmailHash.get({ email: email })

@@ -21,19 +21,18 @@ export default class Credentials extends factory.classes.Credentials {
         if (typeof username === "object") {
             fields = username;
         }
-        console.log("fields", fields);
         super(fields);
     }
 
     /**
      * Assign a hash value to the player based on the 'password' argument.
      */
-    async setPW(password) {
-        this.hash = await bcrypt.hash(password, CONST.DB.SALT_ITERATIONS);
+    setPW(password) {
+        this.hash = bcrypt.hashSync(password, CONST.DB.SALT_ITERATIONS);
         return this.hash;
     }
 
     validatePW(password) {
-        return bcrypt.compare(password, this.hash);
+        return bcrypt.compareSync(password, this.hash);
     }
 }

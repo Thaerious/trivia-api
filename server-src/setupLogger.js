@@ -2,7 +2,8 @@ import Logger, { colorize, position} from "@thaerious/logger";
 import CONST from "./constants.js";
 import { mkdirif } from "@thaerious/utility";
 import FS from "fs";
-import ParseArgs from "@thaerious/parseargs"
+import ParseArgs from "@thaerious/parseargs";
+import sqlformat from "./sqlformat.js";
 
 /**
  * date : Date object
@@ -84,5 +85,11 @@ logger.veryverbose.handlers = [
     colorize,
     console
 ];
+
+logger.sql.handlers = [
+    sqlformat,
+    colorize,
+    console
+]
 
 export default logger;

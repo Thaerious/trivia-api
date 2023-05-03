@@ -10,17 +10,16 @@ import jsonschema from "jsonschema";
 import EmailHash from "../../models/EmailHash.js";
 import ParseArgs from "@thaerious/parseargs";
 
-const args = new ParseArgs().run();
+const args = new ParseArgs();
 
 /**
  * Router to handle registration and login.
  */
-
 const emailFactory = new EmailFactory();
 
 const handler = {
     validator: new jsonschema.Validator(),
-    
+
     async middleware(req, res, next) {
         logger.verbose(`credentials.${req.params.action} : ${JSON.stringify(req.body, null, 2)}`);
 
@@ -29,6 +28,11 @@ const handler = {
                 const validated = this.validator.validate(req.body, { '$ref': req.params.action });
                 if (!validated) return handleError(res);
                 await this[req.params.action](req, res);
+            } else {
+                handleResponse(res, {
+                    message: `unknown action: ${req.params.action}`,
+                    code: 404
+                });
             }
         } catch (error) {
             logger.error(error);
@@ -48,7 +52,9 @@ const handler = {
         handleResponse(res, {
             log: true,
             data: {
-                logged_in: isLoggedIn(req)
+                logged_in: isLoggedIn(req),
+                username: getUserName(req),
+                email: getEmail(req)
             }
         });
     },
@@ -60,9 +66,9 @@ const handler = {
      * - Adds the credentials to the user db table.
      * - Adds a hash to the email confirmation table.
      */
-    register(req, res) {
+    async register(req, res) {
         const cred = new Credentials(req.body);
-        cred.setPW(req.body.password);
+        await cred.setPW(req.body.password);
         const conf = new EmailHash(req.body.email);
         const confirmationURL = CONST.URL.CONFIRMATON + "/" + conf.hash;
 
@@ -70,7 +76,11 @@ const handler = {
             .confirmation(req.body.email, confirmationURL)
             .send();
 
-        handleResponse(res);
+        handleResponse(res, {
+            data: {
+                url: args.debug ? confirmationURL : undefined
+            }
+        });
     },
 
     /**
@@ -81,31 +91,12 @@ const handler = {
      * - Credentials are stored unser req.session.user.
      */
     async login(req, res) {
-        const username = req.body.username;
+        const cred = validateCredentials(req, res);
+        if (!cred) return;
 
-        if (!Credentials.$hasUsername(username)) {
-            return handleError(res, {
-                message: "invalid login credentials",
-                status: CONST.STATUS.REJECTED,
-                log: false
-            });
-        }
-
-        const cred = Credentials.get({ username: username });
-        const validate = cred.validatePassword(req.body.password);
-
-        if (validate) {
-            setLoggedIn(req, true);
-            req.session.user = cred;
-            logger.log(`user logged in: '${username}'`);
-            handleResponse(res);
-        } else {
-            handleError(res, {
-                message: "invalid login credentials",
-                status: CONST.STATUS.REJECTED,
-                log: false
-            });
-        }
+        setLoggedIn(req, true);
+        req.session.user = cred;
+        handleResponse(res);
     },
 
     /**
@@ -113,26 +104,64 @@ const handler = {
      * Body: {username, email, password}
      */
     async updateEmail(req, res) {
-        Credentials.get({ username: req.params.username });
-        const validate = await cred.validatePassword(req.body.password);
+        const cred = validateCredentials(req, res);
+        if (!cred) return;
 
-        if (!isLoggedIn(req)) {
-            handleResponse(res, { status: CONST.STATUS.REJECTED });
-        }
-        else if (validate) {
-            cred.email = req.body.email;
-            req.session.user = cred.$data;
-            handleResponse(res);
-        }
-        else {
-            handleResponse(res, { status: CONST.STATUS.REJECTED });
-        }
+        cred.email = req.body.email;
+        req.session.user = cred;
+        handleResponse(res);
     },
+
+    /**
+     * Update a users email.
+     * Body: {username, email, password}
+     */
+    async updatePassword(req, res) {
+        const cred = validateCredentials(req, res);
+        if (!cred) return;
+
+        await cred.setPW(req.body.new_password);
+        req.session.user = cred;
+        handleResponse(res);
+    },
+
+    async deleteUser(req, res) {
+        const cred = validateCredentials(req, res);
+        if (!cred) return;
+
+        setLoggedIn(req, false);
+        delete req.session.user;
+        cred.$delete();
+        handleResponse(res);
+    },    
 
     logout(req, res) {
         setLoggedIn(req, false);
+        delete req.session.user;
         handleResponse(res);
     }
+}
+
+function validateCredentials(req, res) {
+    const cred = Credentials.get({ username: req.body.username });
+
+    if (!cred) {
+        return handleResponse(res, {
+            message: "invalid login credentials",
+            code: 404
+        });
+    }
+
+    const validate = cred.validatePW(req.body.password);
+
+    if (!validate) {
+        return handleResponse(res, {
+            message: "invalid login credentials",
+            code: 404
+        });
+    }    
+
+    return cred;
 }
 
 function isLoggedIn(req) {
@@ -144,7 +173,11 @@ function setLoggedIn(req, value) {
 }
 
 function getUserName(req) {
-    return req.session.user.username;
+    return req.session?.user?.username;
+}
+
+function getEmail(req) {
+    return req.session?.user?.email;
 }
 
 handler.validator.addSchema({
@@ -165,6 +198,55 @@ handler.validator.addSchema({
         "password": { "type": "string", minLength: 1, maxLength: 32 },
     },
     "required": ["username", "email", "password"]
+});
+
+handler.validator.addSchema({
+    "id": "/deleteUser",
+    "type": "object",
+    "properties": {
+        "username": { "type": "string", minLength: 1, maxLength: 32 },
+        "password": { "type": "string", minLength: 1, maxLength: 32 },
+    },
+    "required": ["username", "password"]
+});
+
+handler.validator.addSchema({
+    "id": "/updateEmail",
+    "type": "object",
+    "properties": {
+        "username": { "type": "string", minLength: 1, maxLength: 32 },
+        "email": { "type": "string", minLength: 1, maxLength: 32 },
+        "password": { "type": "string", minLength: 1, maxLength: 32 },
+    },
+    "required": ["username", "email", "password"]
+});
+
+handler.validator.addSchema({
+    "id": "/updatePassword",
+    "type": "object",
+    "properties": {
+        "username": { "type": "string", minLength: 1, maxLength: 32 },
+        "newPassword": { "type": "string", minLength: 1, maxLength: 32 },
+        "password": { "type": "string", minLength: 1, maxLength: 32 },
+    },
+    "required": ["username", "newPassword", "password"]
+});
+
+handler.validator.addSchema({
+    "id": "/login",
+    "type": "object",
+    "properties": {
+        "username": { "type": "string", minLength: 1, maxLength: 32 },
+        "password": { "type": "string", minLength: 1, maxLength: 32 },
+    },
+    "required": ["username", "password"]
+});
+
+handler.validator.addSchema({
+    "id": "/logout",
+    "type": "object",
+    "properties": {},
+    "required": []
 });
 
 const router = express.Router();
